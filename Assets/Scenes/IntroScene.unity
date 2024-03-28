@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18018535, g: 0.22559482, b: 0.30677685, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -456,6 +456,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1508462736}
+  - {fileID: 1021332593}
   - {fileID: 427477082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,7 +616,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1137872396}
     m_Modifications:
     - target: {fileID: 8568544637412148623, guid: 893219773891c784ab469a39151879b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -697,6 +699,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.63746524, y: 0.480367, z: 0.64723533}
   m_Center: {x: 0.012084603, y: 0.2598165, z: 0.016969651}
+--- !u!4 &1508462736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8568544637412148623, guid: 893219773891c784ab469a39151879b4, type: 3}
+  m_PrefabInstance: {fileID: 1508462733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1508462737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +843,6 @@ Transform:
   m_Children:
   - {fileID: 2030822430}
   - {fileID: 1563732702}
-  - {fileID: 1021332593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1825064573
@@ -1032,7 +1038,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1775488683}
+    m_TransformParent: {fileID: 1137872396}
     m_Modifications:
     - target: {fileID: 4688258266318552527, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_Name
@@ -1091,6 +1097,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1775488683}
-  - {fileID: 1508462733}
   - {fileID: 760900896}
   - {fileID: 1137872396}

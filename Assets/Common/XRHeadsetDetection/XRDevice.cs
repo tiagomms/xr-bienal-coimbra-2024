@@ -12,13 +12,13 @@ using UnityEngine.XR;
 
 public enum XRDeviceState
 {
-    none,
-    started,
-    working,
-    canceled,
-    notSupported,
-    weird,
-    failed
+    None,
+    Started,
+    Working,
+    Canceled,
+    NotSupported,
+    Weird,
+    Failed
 }
 
 public class XRDevice
@@ -31,22 +31,24 @@ public class XRDevice
         }
     }
 
-    private static XRDeviceState xrDeviceState = XRDeviceState.none;
+    private static XRDeviceState xrDeviceState = XRDeviceState.None;
     public static XRDeviceState XrDeviceState { get => xrDeviceState; }
 
-    public static event Action onDeviceStarted;
-    public static event Action onDeviceCanceled;
+    public static event Action OnDeviceStarted;
+    public static event Action OnDeviceCanceled;
 
     /// <summary>
     /// returns true if the HMD is mounted on the users head. Returns false if the current headset does not support this feature or if the HMD is not mounted.
     /// </summary>
     /// <returns></returns>
-    public static XRDeviceState IsHMDMounted()
+    public static XRDeviceState IsHmdMounted()
     {
-        #if UNITY_EDITOR || UNITY_EDITOR_64 || UNITY_EDITOR_OSX
+        #if UNITY_EDITOR_OSX
+        
+            // works on simulator
             SetMountedStateToTrue();
 
-        #elif UNITY_ANDROID
+        #elif UNITY_ANDROID || UNITY_EDITOR_WIN
 
             if(headDevice == null || headDevice.isValid == false)
             {
@@ -63,37 +65,33 @@ public class XRDevice
                     }
                     else
                     {
-                        xrDeviceState = XRDeviceState.canceled;
-                        onDeviceCanceled?.Invoke();
+                        xrDeviceState = XRDeviceState.Canceled;
+                        OnDeviceCanceled?.Invoke();
                     }
                 }
                 else 
                 {
-                    xrDeviceState = XRDeviceState.notSupported;
+                    xrDeviceState = XRDeviceState.NotSupported;
                 }
             } else
             {
-                xrDeviceState = XRDeviceState.failed;
+                xrDeviceState = XRDeviceState.Failed;
             }
         #endif
-        DebugManager.Instance.Log("XR Device State ----------- " + xrDeviceState.ToString());
+        //DebugManager.Instance.Log("XR Device State ----------- " + xrDeviceState.ToString());
         return xrDeviceState;
     }
 
     private static void SetMountedStateToTrue()
     {
-        if (xrDeviceState != XRDeviceState.started && xrDeviceState != XRDeviceState.working)
+        if (xrDeviceState == XRDeviceState.Started)
         {
-            xrDeviceState = XRDeviceState.started;
-            onDeviceStarted?.Invoke();
+            xrDeviceState = XRDeviceState.Working;
         }
-        else if (xrDeviceState == XRDeviceState.started)
+        else if (xrDeviceState != XRDeviceState.Working)
         {
-            xrDeviceState = XRDeviceState.working;
-        }
-        else
-        {
-            xrDeviceState = XRDeviceState.weird;
+            xrDeviceState = XRDeviceState.Started;
+            OnDeviceStarted?.Invoke();
         }
     }
 }
