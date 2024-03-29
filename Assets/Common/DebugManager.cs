@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DebugManager : MonoBehaviour
@@ -5,21 +6,11 @@ public class DebugManager : MonoBehaviour
     private static DebugManager _instance;
 
     // Singleton instance
-    public static DebugManager Instance
+    public static DebugManager Instance => _instance ?? (_instance = new DebugManager());
+
+    private DebugManager()
     {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<DebugManager>();
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject("DebugManager");
-                    _instance = obj.AddComponent<DebugManager>();
-                }
-            }
-            return _instance;
-        }
+        // avoid external instantiation
     }
 
     private void Awake()
@@ -47,6 +38,7 @@ public class DebugManager : MonoBehaviour
             Debug.Log(message);
         #endif
     }
+
 
     // Add other logging methods as needed (Warning, Error, etc.)
 }

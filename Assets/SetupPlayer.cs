@@ -19,6 +19,12 @@ public class SetupPlayer : MonoBehaviour
     [SerializeField]
     private bool _hideOnBuildHelpfulObjects = true;
     
+    // TODO: implement a general approach later if required
+    [SerializeField] 
+    private bool shouldUseDebugUiText = false;
+
+    [SerializeField] private List<ChangeUiTextViaScript> debugUiTexts; 
+    
     private XRInputSubsystem _inputSubSystem;
     private List<Vector3> _boundaries;
 
@@ -74,25 +80,25 @@ public class SetupPlayer : MonoBehaviour
     
     private void SetUpBoundaries()
     {
-        if (_inputSubSystem != null) return;
-        
-        List<XRInputSubsystem> list = new List<XRInputSubsystem>();
-        SubsystemManager.GetInstances<XRInputSubsystem>(list);
-        foreach (XRInputSubsystem sSystem in list)
+        if (_inputSubSystem == null)
         {
-            if (sSystem.running)
+            var loader = XRGeneralSettings.Instance?.Manager?.activeLoader;
+            if (loader == null)
             {
-                _inputSubSystem = sSystem;
-                DebugManager.Instance.Log("Found inputSubSystem: " + _inputSubSystem.ToString());
-                break;
+                Debug.LogWarning("Could not get active Loader.");
+                return;
             }
+            _inputSubSystem = loader.GetLoadedSubsystem<XRInputSubsystem>();
+            DebugManager.Instance.Log("Found inputSubSystem: " + _inputSubSystem.ToString());
         }
 
         if (_inputSubSystem != null)
         {
-            _inputSubSystem.boundaryChanged += RefreshBoundaries;
+            //_inputSubSystem.boundaryChanged += RefreshBoundaries;
+            RefreshBoundaries(_inputSubSystem);
         }
-            
+
+        
     }
  
     private void RefreshBoundaries(XRInputSubsystem inputSubsystem)
@@ -105,16 +111,27 @@ public class SetupPlayer : MonoBehaviour
         {
             DebugManager.Instance.Log("Tried to get boundaries");
             //got boundaries, keep only those which didn't change.
+            
             if ((_boundaries != currentBoundaries || _boundaries.Count != currentBoundaries.Count))
             {
                 _boundaries = currentBoundaries;
                 DebugManager.Instance.Log("boundaries set up. Positions: ");
-                #if UNITY_EDITOR
-                for (int i = 0; i < _boundaries.Count; i++)
+
+                if (shouldUseDebugUiText)
                 {
-                    DebugManager.Instance.Log("(1) " + _boundaries[i].ToString());
+                    string newText = "Boundary Positions:\n";
+                    for (int i = 0; i < _boundaries.Count; i++)
+                    {
+                        string line = "(" + i + ") " + _boundaries[i].ToString();
+                        newText += line;
+                        DebugManager.Instance.Log(line);
+                    }
+                    
+                    
                 }
-                #endif
+                
+                
+                
             }
         }
     }
@@ -122,10 +139,10 @@ public class SetupPlayer : MonoBehaviour
     
     private void CleanUpBoundaries()
     {
-        if (_inputSubSystem != null)
+        if (_boundaries != null)
         {
-            _inputSubSystem.boundaryChanged -= RefreshBoundaries;
-            _inputSubSystem = null;
+            //_inputSubSystem.boundaryChanged -= RefreshBoundaries;
+            //_inputSubSystem = null;
             _boundaries = null;
             DebugManager.Instance.Log("boundaries cleaned up!");
         }
