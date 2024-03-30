@@ -1,29 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class DisableGrabbingHandModel : MonoBehaviour
 {
     private GameObject[] _leftHandModels;
     private GameObject[] _rightHandModels;
+    private XRGrabInteractable _grabInteractable;
 
     void Awake()
     {
-        _leftHandModels = GameObject.FindGameObjectsWithTag(Tags.LEFT_HAND_MODEL_TAG);
-        _rightHandModels = GameObject.FindGameObjectsWithTag(Tags.RIGHT_HAND_MODEL_TAG);
+        _grabInteractable = GetComponent<XRGrabInteractable>();
     }
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
-        XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
-        grabInteractable.selectEntered.AddListener(HideGrabbingHand);
-        grabInteractable.selectExited.AddListener(ShowGrabbingHand);
+        _grabInteractable.selectEntered.AddListener(HideGrabbingHand);
+        _grabInteractable.selectExited.AddListener(ShowGrabbingHand);
+    }
+
+    private void OnDisable()
+    {
+        _grabInteractable.selectEntered.RemoveListener(HideGrabbingHand);
+        _grabInteractable.selectExited.RemoveListener(ShowGrabbingHand);
     }
 
     private void HideGrabbingHand(SelectEnterEventArgs args)
     {
+        // TODO: get XROrigin event that detects change of hand / controller 
+        _leftHandModels = GameObject.FindGameObjectsWithTag(Tags.LEFT_HAND_MODEL_TAG);
+        _rightHandModels = GameObject.FindGameObjectsWithTag(Tags.RIGHT_HAND_MODEL_TAG);
+        
         if (args.interactorObject.transform.parent.CompareTag(Tags.LEFT_HAND_TAG))
         {
             SetActiveToGameObjectsArray(_leftHandModels, false);
@@ -44,6 +54,9 @@ public class DisableGrabbingHandModel : MonoBehaviour
         {
             SetActiveToGameObjectsArray(_rightHandModels, true);
         }
+        
+        _leftHandModels = null;
+        _rightHandModels = null;
     }
     
     
