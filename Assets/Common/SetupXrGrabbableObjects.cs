@@ -37,6 +37,7 @@ public class SetupXrGrabbableObjects : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _xrGrabInteractable = GetComponent<XRGrabInteractable>();
         _meshColliders = GetComponentsInChildren<MeshCollider>();
+        _disableGrabbingHandModel = GetComponent<DisableGrabbingHandModel>();
         
         // make sure any internal mesh collider is set to convex due to rigidbody
         if (setAllConvex)
