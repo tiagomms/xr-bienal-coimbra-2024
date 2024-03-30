@@ -32,6 +32,9 @@ public class SetupPlayer : MonoBehaviour
     [SerializeField] 
     private Transform _environmentParent;
 
+    [SerializeField] 
+    private bool ifIntroScene = false;
+
     [Space(height: 10)]
     [SerializeField]
     private bool _hideOnBuildHelpfulObjects = true;
@@ -65,7 +68,8 @@ public class SetupPlayer : MonoBehaviour
     {
         _xrPlayer.SetActive(true);
 
-        #if USE_SIMULATOR
+
+#if USE_SIMULATOR
         // (1) make sure xrSimulator is on
         _xrSimulator.SetActive(true);
         _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
@@ -89,6 +93,15 @@ public class SetupPlayer : MonoBehaviour
         #endif
     }
 
+    private void Start()
+    {
+        #if USE_QUEST 
+        // set environment false if intro scene
+        _environmentParent.gameObject.SetActive(!ifIntroScene);
+        #endif
+    }
+
+#if USE_QUEST 
     private void OnEnable()
     {
         OVRManager.HMDMounted += OnHeadsetOn;
@@ -100,19 +113,32 @@ public class SetupPlayer : MonoBehaviour
         OVRManager.HMDMounted -= OnHeadsetOn;
         OVRManager.HMDUnmounted -= OnHeadsetOff;
     }
+    #endif
 
     private IEnumerator CheckIfBoundaryChanged()
     {
         yield return new WaitForSeconds(3f);
         RecalculateBoundary(_frameCounter);
-        _frameCounter++;
-
+        
+        // set environment active so you can see
+        _environmentParent.gameObject.SetActive(true);
+        
         // We setup the cage as the biggest size the forward, and not the right
         // if boundary size width is bigger than length, we should rotate the environment 90 degrees over the Y axis
         if (_environmentParent != null && _boundarySize.x > _boundarySize.z)
         {
             _environmentParent.eulerAngles = new Vector3(0f, 90f, 0f);
         }
+
+        if (shouldUseDebugUiText)
+        {
+            string pointsStr = "(" + _frameCounter + ") PlayArea size:\n" + _boundarySize + "\n\n" 
+                               + string.Join("\n", _points.Select(p => p.ToString()));
+            writeToDebugUi.Raise(pointsStr);
+            DebugManager.Instance.Log(pointsStr);
+        }
+        
+        _frameCounter++;
 
     }
 
@@ -141,20 +167,10 @@ public class SetupPlayer : MonoBehaviour
 
     private void RecalculateBoundary(int frameCounter)
     {
-
         if (OVRManager.boundary.GetConfigured())
         {
             _boundarySize = OVRManager.boundary.GetDimensions(OVRBoundary.BoundaryType.PlayArea);
             _points = OVRManager.boundary.GetGeometry(OVRBoundary.BoundaryType.PlayArea);
-
-            string pointsStr = "(" + frameCounter + ") PlayArea size:\n" + _boundarySize + "\n\n" 
-                               + string.Join("\n", _points.Select(p => p.ToString()));
-
-            if (shouldUseDebugUiText)
-            {
-                writeToDebugUi.Raise(pointsStr);
-            }
-            DebugManager.Instance.Log(pointsStr);
         }
     }
 }

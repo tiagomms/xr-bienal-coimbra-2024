@@ -297,7 +297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1137872396}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &427477083
 MeshCollider:
@@ -584,7 +584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1137872396
 Transform:
   m_ObjectHideFlags: 0
@@ -600,7 +600,6 @@ Transform:
   m_Children:
   - {fileID: 8568544638081619202}
   - {fileID: 1021332593}
-  - {fileID: 427477082}
   - {fileID: 1475087280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1621,6 +1620,7 @@ MonoBehaviour:
   _xrPlayer: {fileID: 2030822429}
   _xrSimulator: {fileID: 1563732700}
   _environmentParent: {fileID: 1137872396}
+  ifIntroScene: 1
   _hideOnBuildHelpfulObjects: 0
   shouldUseDebugUiText: 1
   writeToDebugUi: {fileID: 11400000, guid: 11e4df15a90ebbe458884980640bd1c4, type: 2}
@@ -2140,4 +2140,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1775488683}
   - {fileID: 760900896}
+  - {fileID: 427477082}
   - {fileID: 1137872396}
