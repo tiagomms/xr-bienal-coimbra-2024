@@ -86,7 +86,9 @@
           </e>
         </e>
         <e p="Common" t="Include">
-          <e p="DebugManager.cs" t="Include" />
+          <e p="Debug" t="Include">
+            <e p="DebugManager.cs" t="Include" />
+          </e>
           <e p="Events" t="Include">
             <e p="BaseGameEvent.cs" t="Include" />
             <e p="BaseGameEventExtensions.cs" t="Include" />

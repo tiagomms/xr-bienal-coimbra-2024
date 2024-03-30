@@ -6,6 +6,9 @@ using UnityEngine.Events;
 public class TriggerPlayerLocationMatch : MonoBehaviour
 {
     public UnityEvent onMatch;
+
+    [SerializeField] private StringGameEvent onMatchSendString;
+    
     //public UnityEvent noLongerMatch;
     [SerializeField] float invokeOnMatchDelay = 2f;
     [SerializeField] float dotForwardThreshold = 0.75f;
@@ -38,10 +41,10 @@ public class TriggerPlayerLocationMatch : MonoBehaviour
         isMatching = false;
         if (currentCoroutine != null)
         {
+            DebugManager.Instance.Log(" no longer Matching!");
             StopCoroutine(currentCoroutine);
         }
         currentCoroutine = null;
-        DebugManager.Instance.Log(" not Matching!");
     }
 
     private void OnTriggerExit(Collider other) {
@@ -59,7 +62,9 @@ public class TriggerPlayerLocationMatch : MonoBehaviour
         {
             onMatch.Invoke();
             alreadyMatched = true;
-            DebugManager.Instance.Log("WE HAVE A MATCH!");
+            string s = "WE HAVE A MATCH!";
+            onMatchSendString.Raise(s);
+            DebugManager.Instance.Log(s);
         }
     }
 }
