@@ -1,9 +1,10 @@
-
+/*
+ * So if build is made for UNITY_ANDROID it is true for both editors. In order to not change things over laziness,
+ * I use #if and #elif
+ */
 #if UNITY_EDITOR_OSX
 #define USE_SIMULATOR
-#endif
-
-#if UNITY_ANDROID || UNITY_EDITOR_WIN
+#elif UNITY_ANDROID || UNITY_EDITOR_WIN
 #define USE_QUEST
 #endif
 
