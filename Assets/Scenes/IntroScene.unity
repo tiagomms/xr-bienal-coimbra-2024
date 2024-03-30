@@ -813,6 +813,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5291597047524251007, guid: a293957327aa51240a808fa1de6125ab, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1475087287}
+    - targetCorrespondingSourceObject: {fileID: 5291597047524251007, guid: a293957327aa51240a808fa1de6125ab, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1475087285}
     - targetCorrespondingSourceObject: {fileID: 5291597047524251007, guid: a293957327aa51240a808fa1de6125ab, type: 3}
       insertIndex: -1
@@ -873,7 +876,7 @@ MonoBehaviour:
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
-  m_CustomReticle: {fileID: 919132149155446097, guid: be2911572dc3afa448d24b4e97edc5f1, type: 3}
+  m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
   m_AllowGazeSelect: 0
   m_OverrideGazeTimeToSelect: 0
@@ -1025,8 +1028,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
@@ -1042,6 +1045,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e86b54723512e84fb5d2246ce2a6078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1475087287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113042877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434e5f06298e2064dbc9ab6572c494fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 1
+  useGravity: 0
+  isKinematic: 1
+  setAllConvex: 1
+  shouldDisableHandModelWhenGrabbing: 1
 --- !u!1001 &1477551963
 PrefabInstance:
   m_ObjectHideFlags: 0

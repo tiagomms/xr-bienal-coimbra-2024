@@ -101,6 +101,8 @@
             <e p="UnityEventExtensions.cs" t="Include" />
             <e p="VoidGameEventListener.cs" t="Include" />
           </e>
+          <e p="SetupXrGrabbableObjects.cs" t="Include" />
+          <e p="Tags.cs" t="Include" />
           <e p="XRHeadsetDetection" t="Include">
             <e p="XRDevice.cs" t="Include" />
             <e p="XRHeadsetDetector.cs" t="Include" />
