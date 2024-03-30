@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - HideOnBuild
+  - Left Hand Model
+  - Right Hand Model
+  - Right Hand
+  - Left Hand
   layers:
   - Default
   - TransparentFX
