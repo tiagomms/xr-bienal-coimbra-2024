@@ -52,9 +52,13 @@ public class SetupPlayer : MonoBehaviour
     
     [Space(height: 10)]
     [SerializeField]
-    private Transform _xrControllerLeftModel;
+    private Transform _xrControllerLeft;    
     [SerializeField]
-    private Transform _xrControllerRightModel;
+    private Transform _xrControllerLeftStabilizer;
+    [SerializeField]
+    private Transform _xrControllerRight; 
+    [SerializeField]
+    private Transform _xrControllerRightStabilizer;
     [SerializeField]
     private Vector3 _xrSimulatorMoveControllersLocalPosition = new Vector3(0, 0, 0.1f);
     
@@ -84,25 +88,25 @@ public class SetupPlayer : MonoBehaviour
         _xrSimulator.SetActive(true);
         _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
         
-        if (_xrControllerLeftModel != null)
+        if (_xrControllerLeft != null && _xrControllerLeftStabilizer != null)
         {
-            /*
-            for (int i = 0; i < _xrControllerLeftModel.childCount; i++)
+            
+            for (int i = 0; i < _xrControllerLeft.childCount; i++)
             {
-                _xrControllerLeftModel.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
+                _xrControllerLeft.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
             }
-            */
-            _xrControllerLeftModel.localPosition += _xrSimulatorMoveControllersLocalPosition;
+            
+            _xrControllerLeftStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
         }       
-        if (_xrControllerRightModel != null)
+        if (_xrControllerRight != null && _xrControllerRightStabilizer != null)
         {
-            /*
-            for (int i = 0; i < _xrControllerRightModel.childCount; i++)
+            
+            for (int i = 0; i < _xrControllerRight.childCount; i++)
             {
-                _xrControllerRightModel.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
+                _xrControllerRight.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
             }
-            */
-            _xrControllerRightModel.localPosition += _xrSimulatorMoveControllersLocalPosition;
+            
+            _xrControllerRightStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
         }
         
         #elif USE_QUEST 
