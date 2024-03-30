@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7653875916128041887}
+  - component: {fileID: 292558311349770189}
   m_Layer: 0
   m_Name: UI-Text
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 2606241010776742717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &292558311349770189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829406425718364091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43051983da24647428973edbf23e356e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 4089979783979901352}
 --- !u!1 &5448639350041766169
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +138,7 @@ GameObject:
   - component: {fileID: 3130393240096415290}
   - component: {fileID: 5173839381771635719}
   m_Layer: 5
-  m_Name: Background Pannel
+  m_Name: Background Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
