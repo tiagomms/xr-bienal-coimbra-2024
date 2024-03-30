@@ -50,6 +50,15 @@ public class SetupPlayer : MonoBehaviour
     [SerializeField]
     private OVRManager _ovrManager;
     
+    [Space(height: 10)]
+    [SerializeField]
+    private Transform _xrControllerLeftModel;
+    [SerializeField]
+    private Transform _xrControllerRightModel;
+    [SerializeField]
+    private Vector3 _xrSimulatorMoveControllersLocalPosition = new Vector3(0, 0, 0.1f);
+    
+    
     private Vector3 _boundarySize;
     private Vector3[] _points;
 
@@ -70,10 +79,32 @@ public class SetupPlayer : MonoBehaviour
         _xrPlayer.SetActive(true);
 
 
-#if USE_SIMULATOR
+        #if USE_SIMULATOR
         // (1) make sure xrSimulator is on
         _xrSimulator.SetActive(true);
         _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
+        
+        if (_xrControllerLeftModel != null)
+        {
+            /*
+            for (int i = 0; i < _xrControllerLeftModel.childCount; i++)
+            {
+                _xrControllerLeftModel.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
+            }
+            */
+            _xrControllerLeftModel.localPosition += _xrSimulatorMoveControllersLocalPosition;
+        }       
+        if (_xrControllerRightModel != null)
+        {
+            /*
+            for (int i = 0; i < _xrControllerRightModel.childCount; i++)
+            {
+                _xrControllerRightModel.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
+            }
+            */
+            _xrControllerRightModel.localPosition += _xrSimulatorMoveControllersLocalPosition;
+        }
+        
         #elif USE_QUEST 
 
 
