@@ -35,6 +35,7 @@
               <e p="XRHeadsetDetector.cs" t="Include" />
             </e>
           </e>
+          <e p="ChangeUiImageViaScript.cs" t="Include" />
           <e p="ChangeUiTextViaScript.cs" t="Include" />
           <e p="Portal" t="Include">
             <e p="AbstractPortalToSomeNewPlace.cs" t="Include" />
