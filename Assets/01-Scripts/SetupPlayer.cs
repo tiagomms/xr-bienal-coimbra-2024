@@ -155,8 +155,8 @@ public class SetupPlayer : MonoBehaviour
 
     private IEnumerator CheckIfBoundaryChanged()
     {
-        yield return new WaitForSeconds(3f);
-        RecalculateBoundary(_frameCounter);
+        yield return new WaitForSeconds(5f);
+        RecalculateBoundary();
         
         // set environment active so you can see
         _environmentParent.gameObject.SetActive(true);
@@ -168,11 +168,14 @@ public class SetupPlayer : MonoBehaviour
             _environmentParent.eulerAngles = new Vector3(0f, 90f, 0f);
         }
 
-        if (shouldUseDebugUiText)
+        if (shouldUseDebugUiText && _points.Length != 0)
         {
             string pointsStr = "(" + _frameCounter + ") PlayArea size:\n" + _boundarySize + "\n\n" 
                                + string.Join("\n", _points.Select(p => p.ToString()));
-            writeToDebugUi.Raise(pointsStr);
+            if (writeToDebugUi != null)
+            {
+                writeToDebugUi.Raise(pointsStr);
+            }
             DebugManager.Instance.Log(pointsStr);
         }
         
@@ -203,7 +206,7 @@ public class SetupPlayer : MonoBehaviour
         #endif
     }
 
-    private void RecalculateBoundary(int frameCounter)
+    private void RecalculateBoundary()
     {
         if (OVRManager.boundary.GetConfigured())
         {

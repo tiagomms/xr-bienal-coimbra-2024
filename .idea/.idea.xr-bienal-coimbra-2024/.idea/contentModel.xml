@@ -8,7 +8,43 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ChangeUiTextViaScript.cs" t="Include" />
+        <e p="01-Scripts" t="Include">
+          <e p="00-Common" t="Include">
+            <e p="Debug" t="Include">
+              <e p="DebugManager.cs" t="Include" />
+            </e>
+            <e p="DisableGrabbingHandModel.cs" t="Include" />
+            <e p="Events" t="Include">
+              <e p="BaseGameEvent.cs" t="Include" />
+              <e p="BaseGameEventExtensions.cs" t="Include" />
+              <e p="BaseGameEventListener.cs" t="Include" />
+              <e p="FloatGameEventListener.cs" t="Include" />
+              <e p="GameEvent.cs" t="Include" />
+              <e p="IntGameEventListener.cs" t="Include" />
+              <e p="StringGameEventListener.cs" t="Include" />
+              <e p="UnityEventExtensions.cs" t="Include" />
+              <e p="VoidGameEventListener.cs" t="Include" />
+            </e>
+            <e p="LoadScene.cs" t="Include" />
+            <e p="OnTimedInterval.cs" t="Include" />
+            <e p="OnTriggerPlayerInvoke.cs" t="Include" />
+            <e p="SetupXrGrabbableObjects.cs" t="Include" />
+            <e p="Tags.cs" t="Include" />
+            <e p="XRHeadsetDetection" t="Include">
+              <e p="XRDevice.cs" t="Include" />
+              <e p="XRHeadsetDetector.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ChangeUiTextViaScript.cs" t="Include" />
+          <e p="Portal" t="Include">
+            <e p="AbstractPortalToSomeNewPlace.cs" t="Include" />
+            <e p="PortalToNewLocationInSameScene.cs" t="Include" />
+            <e p="PortalToNewScene.cs" t="Include" />
+          </e>
+          <e p="SetupPlayer.cs" t="Include" />
+          <e p="TriggerCapsuleColliderFollowCamera.cs" t="Include" />
+          <e p="TriggerPlayerLocationMatch.cs" t="Include" />
+        </e>
         <e p="com.meta.xr.sdk.sharedassets@60.0.0" t="Include">
           <e p="Editor" t="Include">
             <e p="Shared" t="Include">
@@ -83,29 +119,6 @@
               </e>
             </e>
             <e p="xr.sdk.sharedassets.runtime.asmdef" t="Include" />
-          </e>
-        </e>
-        <e p="Common" t="Include">
-          <e p="Debug" t="Include">
-            <e p="DebugManager.cs" t="Include" />
-          </e>
-          <e p="DisableGrabbingHandModel.cs" t="Include" />
-          <e p="Events" t="Include">
-            <e p="BaseGameEvent.cs" t="Include" />
-            <e p="BaseGameEventExtensions.cs" t="Include" />
-            <e p="BaseGameEventListener.cs" t="Include" />
-            <e p="FloatGameEventListener.cs" t="Include" />
-            <e p="GameEvent.cs" t="Include" />
-            <e p="IntGameEventListener.cs" t="Include" />
-            <e p="StringGameEventListener.cs" t="Include" />
-            <e p="UnityEventExtensions.cs" t="Include" />
-            <e p="VoidGameEventListener.cs" t="Include" />
-          </e>
-          <e p="SetupXrGrabbableObjects.cs" t="Include" />
-          <e p="Tags.cs" t="Include" />
-          <e p="XRHeadsetDetection" t="Include">
-            <e p="XRDevice.cs" t="Include" />
-            <e p="XRHeadsetDetector.cs" t="Include" />
           </e>
         </e>
         <e p="MRTemplateAssets" t="Include">
@@ -243,7 +256,6 @@
             </e>
           </e>
         </e>
-        <e p="SetupPlayer.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
@@ -276,8 +288,6 @@
             <e p="EmojiOne.json" t="Include" />
           </e>
         </e>
-        <e p="TriggerCapsuleColliderFollowCamera.cs" t="Include" />
-        <e p="TriggerPlayerLocationMatch.cs" t="Include" />
       </e>
       <e p="Library" t="Include">
         <e p="PackageCache" t="Include">

@@ -611,6 +611,7 @@ Transform:
   - {fileID: 8568544638081619202}
   - {fileID: 1021332593}
   - {fileID: 1475087280}
+  - {fileID: 1789383056}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1193020063
@@ -831,9 +832,6 @@ PrefabInstance:
       addedObject: {fileID: 1475087284}
     - targetCorrespondingSourceObject: {fileID: 5291597047524251007, guid: a293957327aa51240a808fa1de6125ab, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1475087283}
-    - targetCorrespondingSourceObject: {fileID: 5291597047524251007, guid: a293957327aa51240a808fa1de6125ab, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1475087286}
   m_SourcePrefab: {fileID: 100100000, guid: a293957327aa51240a808fa1de6125ab, type: 3}
 --- !u!4 &1475087280 stripped
@@ -841,28 +839,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4766030882609827781, guid: a293957327aa51240a808fa1de6125ab, type: 3}
   m_PrefabInstance: {fileID: 1475087279}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1475087283
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113042877}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2096794972710530699, guid: a51f4414ed22f6f4d8ffc4e2208c57cd, type: 3}
 --- !u!114 &1475087284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,10 +889,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1789383058}
+        m_TargetAssemblyTypeName: PortalToNewScene, Assembly-CSharp
+        m_MethodName: OpenPortalToNewScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SampleScene
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1789383058}
+        m_TargetAssemblyTypeName: PortalToSomeNewPlace, Assembly-CSharp
+        m_MethodName: ClosePortal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1665,6 +1665,103 @@ Transform:
   - {fileID: 1563732702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1789383055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1137872396}
+    m_Modifications:
+    - target: {fileID: 3185839889411965511, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_Size.z
+      value: 0.66176426
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185839889411965511, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185839889411965511, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_Center.z
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664097096433386347, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: onMatchSendString
+      value: 
+      objectReference: {fileID: 11400000, guid: 11e4df15a90ebbe458884980640bd1c4, type: 2}
+    - target: {fileID: 6379968003711110856, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_Name
+      value: PortalToNextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107099984831906011, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577260551379262599, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: m_Name
+      value: PortalMesh-NextScene
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+--- !u!4 &1789383056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3493797345882397984, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+  m_PrefabInstance: {fileID: 1789383055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789383058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6889986379155278446, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+  m_PrefabInstance: {fileID: 1789383055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9033222fbab44409730fdec0b027bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1807657141 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7990873191126656719, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
