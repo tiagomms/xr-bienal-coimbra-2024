@@ -12,8 +12,8 @@ public class ChangeUiVideoViaScript : MonoBehaviour
 
     private void Start()
     {
-        //m_VideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-        //m_VideoPlayer.SetTargetAudioSource(0, m_AudioSource);
+        m_VideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        m_VideoPlayer.SetTargetAudioSource(0, m_AudioSource);
     }
 
     public void ChangeVideo(VideoClip newClip, float volume, bool playNow = true)

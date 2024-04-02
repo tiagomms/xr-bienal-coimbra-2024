@@ -86,7 +86,9 @@ public class SetupPlayer : MonoBehaviour
         #if USE_SIMULATOR
         // (1) make sure xrSimulator is on
         _xrSimulator.SetActive(true);
-        _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
+        
+        if (_ovrManager != null)
+            _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
         
         // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
         //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
