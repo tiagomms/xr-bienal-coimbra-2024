@@ -38,11 +38,15 @@
           <e p="ChangeUiImageViaScript.cs" t="Include" />
           <e p="ChangeUiTextViaScript.cs" t="Include" />
           <e p="ChangeUiVideoViaScript.cs" t="Include" />
+          <e p="IntroScene" t="Include">
+            <e p="IntroSceneSetupBasedOnBoundary.cs" t="Include" />
+          </e>
           <e p="Portal" t="Include">
             <e p="AbstractPortalToSomeNewPlace.cs" t="Include" />
             <e p="PortalToNewLocationInSameScene.cs" t="Include" />
             <e p="PortalToNewScene.cs" t="Include" />
           </e>
+          <e p="SceneTransitionManager.cs" t="Include" />
           <e p="SetupPlayer.cs" t="Include" />
           <e p="TriggerCapsuleColliderFollowCamera.cs" t="Include" />
           <e p="TriggerPlayerLocationMatch.cs" t="Include" />
@@ -123,6 +127,7 @@
             <e p="xr.sdk.sharedassets.runtime.asmdef" t="Include" />
           </e>
         </e>
+        <e p="FadeScreen.cs" t="Include" />
         <e p="MRTemplateAssets" t="Include">
           <e p="Scripts" t="Include">
             <e p="BooleanToggleVisualsController.cs" t="Include" />

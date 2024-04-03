@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,29 +11,48 @@ using UnityEngine;
 public class PortalToNewLocationInSameScene : AbstractPortalToSomeNewPlace
 {
     [SerializeField] protected bool isAlwaysOpen = true;
-    private Transform _nextLocation;
+    
 
     protected override void Awake()
     {
+        portalSettings.PortalType = PortalType.ToNewLocationInSameScene;
         AlwaysOpenFlag = isAlwaysOpen;
         base.Awake();
     }
-    
+
     public void OpenPortalToNewLocation(Transform transformIfSameScene)
     {
+        portalSettings.NextSceneName = null;
+        portalSettings.NextLocation = transformIfSameScene;
         base.OpenPortal();
-        _nextLocation = transformIfSameScene;
     }
 
-    public override void ActivatePortal(Transform player)
+    public override void EnterPortal(Transform player)
     {
-        base.ActivatePortal(player);
+        base.EnterPortal(player);
         // Teleport the player to the destination position
-        if (_nextLocation != null)
+        if (portalSettings.NextLocation != null)
         {
-            player.position = _nextLocation.position;
-            // TODO: check if rotation is needed to change as well
+            StartCoroutine(GoThroughPortalInSameScene(player));
         }
     }
-    
+
+    private IEnumerator GoThroughPortalInSameScene(Transform player)
+    {
+        OnPortalEnter?.Invoke(portalSettings);
+        
+        yield return new WaitForSeconds(portalSettings.enterPortalAnimDuration);
+        
+        LeavePortal(player);
+    }
+
+    protected override void LeavePortal(Transform player)
+    {
+        base.LeavePortal(player);
+
+        OnPortalThrough?.Invoke(portalSettings);
+
+        // TODO: check if rotation is needed to change as well
+        player.position = portalSettings.NextLocation.position;
+    }
 }

@@ -2275,7 +2275,7 @@ PrefabInstance:
       objectReference: {fileID: 1789383058}
     - target: {fileID: 6019468955505006654, guid: ecf7636b3c441714d914ccc66f7d2d15, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TestScene
+      value: IgnoreDeleteAfterScene
       objectReference: {fileID: 0}
     - target: {fileID: 7455002196560366374, guid: ecf7636b3c441714d914ccc66f7d2d15, type: 3}
       propertyPath: m_Name
