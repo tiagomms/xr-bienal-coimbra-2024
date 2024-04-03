@@ -48,12 +48,10 @@ MonoBehaviour:
   portalSound: {fileID: 0}
   audioVolume: 1
   audioMaxDistance: 3
-  onPortalOpened:
-    m_PersistentCalls:
-      m_Calls: []
-  onPortalClosed:
-    m_PersistentCalls:
-      m_Calls: []
+  portalSettings:
+    enterPortalAnimDuration: 3
+    leavePortalAnimDuration: 1
+    fadeBaseColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &155853479637387336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +68,10 @@ PrefabInstance:
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6889986379155278446}
+    - target: {fileID: 4797319250834115363, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
+      propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterPortal
+      objectReference: {fileID: 0}
     - target: {fileID: 5082813262405253966, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

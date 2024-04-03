@@ -10,12 +10,12 @@ public class SceneTransitionManager : MonoBehaviour
 
     private void OnEnable()
     {
-        AbstractPortalToSomeNewPlace.OnPortalActivated += LoadSceneFromPortalIfToNewScene;
+        AbstractPortalToSomeNewPlace.OnPortalEnter += LoadSceneFromPortalIfToNewScene;
     }
 
     private void OnDisable()
     {
-        AbstractPortalToSomeNewPlace.OnPortalActivated -= LoadSceneFromPortalIfToNewScene;
+        AbstractPortalToSomeNewPlace.OnPortalEnter -= LoadSceneFromPortalIfToNewScene;
     }
 
     public void GoToScene(string sceneName)
@@ -33,7 +33,7 @@ public class SceneTransitionManager : MonoBehaviour
     {
         if (portalSettings.PortalType == PortalType.ToNewScene)
         {
-            StartCoroutine(GoToSceneAsyncRoutine(portalSettings.NextSceneName, portalSettings.fadeAnimationDuration));
+            StartCoroutine(GoToSceneAsyncRoutine(portalSettings.NextSceneName, portalSettings.enterPortalAnimDuration));
         }
     }
     

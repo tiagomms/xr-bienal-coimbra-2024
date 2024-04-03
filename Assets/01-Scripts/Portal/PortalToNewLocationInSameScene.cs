@@ -27,17 +27,32 @@ public class PortalToNewLocationInSameScene : AbstractPortalToSomeNewPlace
         base.OpenPortal();
     }
 
-    public override void ActivatePortal(Transform player)
+    public override void EnterPortal(Transform player)
     {
-        base.ActivatePortal(player);
+        base.EnterPortal(player);
         // Teleport the player to the destination position
         if (portalSettings.NextLocation != null)
         {
-            OnPortalActivated?.Invoke(portalSettings);
-            
-            // TODO: check if rotation is needed to change as well
-            player.position = portalSettings.NextLocation.position;
+            StartCoroutine(GoThroughPortalInSameScene(player));
         }
     }
-    
+
+    private IEnumerator GoThroughPortalInSameScene(Transform player)
+    {
+        OnPortalEnter?.Invoke(portalSettings);
+        
+        yield return new WaitForSeconds(portalSettings.enterPortalAnimDuration);
+        
+        LeavePortal(player);
+    }
+
+    protected override void LeavePortal(Transform player)
+    {
+        base.LeavePortal(player);
+
+        OnPortalThrough?.Invoke(portalSettings);
+
+        // TODO: check if rotation is needed to change as well
+        player.position = portalSettings.NextLocation.position;
+    }
 }

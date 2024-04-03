@@ -13,7 +13,8 @@ public enum PortalType
 [System.Serializable]
 public class PortalSettings
 {
-    public float fadeAnimationDuration = 3f;
+    public float enterPortalAnimDuration = 3f;
+    public float leavePortalAnimDuration = 3f;
     public Color fadeBaseColor;
 
     public PortalType PortalType { get; set; }
@@ -32,7 +33,8 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     [Tooltip("Portal Settings when Fading")]
     [SerializeField] protected PortalSettings portalSettings;
     
-    public static Action<PortalSettings> OnPortalActivated;
+    public static Action<PortalSettings> OnPortalEnter;
+    public static Action<PortalSettings> OnPortalThrough;
 
     protected bool AlwaysOpenFlag = false;
     private bool _isOpen = false;
@@ -93,7 +95,14 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
         
     }
 
-    public virtual void ActivatePortal(Transform player)
+    public virtual void EnterPortal(Transform player)
+    {
+        if (!_isOpen)
+            return;
+        
+    }
+    
+    protected virtual void LeavePortal(Transform player)
     {
         if (!_isOpen)
             return;

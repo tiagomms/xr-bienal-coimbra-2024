@@ -22,14 +22,14 @@ public class PortalToNewScene : AbstractPortalToSomeNewPlace
         base.OpenPortal();
     }
     
-    public override void ActivatePortal(Transform player)
+    public override void EnterPortal(Transform player)
     {
-        base.ActivatePortal(player);
+        base.EnterPortal(player);
 
         if (portalSettings.NextSceneName != null)
         {
             // Scene Transition Manager is reading this
-            OnPortalActivated?.Invoke(portalSettings);    
+            OnPortalEnter?.Invoke(portalSettings);    
         }
         
     }

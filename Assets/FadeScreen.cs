@@ -22,12 +22,14 @@ public class FadeScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        AbstractPortalToSomeNewPlace.OnPortalActivated += FadeOutFromPortal;
+        AbstractPortalToSomeNewPlace.OnPortalEnter += FadeOutFromPortal;
+        AbstractPortalToSomeNewPlace.OnPortalThrough += FadeInFromPortal;
     }
 
     private void OnDisable()
     {
-        AbstractPortalToSomeNewPlace.OnPortalActivated -= FadeOutFromPortal;
+        AbstractPortalToSomeNewPlace.OnPortalEnter -= FadeOutFromPortal;
+        AbstractPortalToSomeNewPlace.OnPortalThrough -= FadeInFromPortal;
     }
 
     private void Start()
@@ -40,7 +42,12 @@ public class FadeScreen : MonoBehaviour
 
     private void FadeOutFromPortal(PortalSettings portalSettings)
     {
-        FadeOut(portalSettings.fadeAnimationDuration);
+        FadeOut(portalSettings.enterPortalAnimDuration);
+    }    
+    
+    private void FadeInFromPortal(PortalSettings portalSettings)
+    {
+        FadeIn(portalSettings.leavePortalAnimDuration);
     }
 
     public void FadeIn(float duration = 0f)
@@ -63,6 +70,7 @@ public class FadeScreen : MonoBehaviour
     {
         float timer = 0;
         Color newColor = _fadeColor;
+        newColor.a = alphaIn;
 
         while (timer <= duration)
         {
