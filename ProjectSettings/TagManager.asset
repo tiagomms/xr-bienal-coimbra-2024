@@ -9,6 +9,7 @@ TagManager:
   - Right Hand Model
   - Right Hand
   - Left Hand
+  - PortalObject
   layers:
   - Default
   - TransparentFX

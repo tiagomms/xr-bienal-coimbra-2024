@@ -65,18 +65,17 @@ public class SetupPlayer : MonoBehaviour
     
     private Vector3 _boundarySize;
     private Vector3[] _points;
+    private bool isLoadingIntroScene;
 
     private int _frameCounter = 0;
     
     /// <summary>
     /// VERY IMPORTANT
-    /// TODO: when switching to OSX and Windows, before pushing always set manually:
-    ///     Project Settings > XR interaction toolkit > use xr device simulator
     /// OVRManager interferes with XROrigin tracking origin level.
     ///  - So for the simulator, OVRManager must be set to eyelevel
     ///  - For non-simulator (Quest Link and Quest), FloorLevel to work properly
     /// March 2024: Recenter does not work properly on Quest Link - that is a reported bug in some channels
-    /// That being said, the build works fine with a guardian. 
+    /// That being said, the build works fine with a guardian.
     /// </summary>
     private void Awake()
     {
@@ -153,11 +152,11 @@ public class SetupPlayer : MonoBehaviour
         OVRManager.HMDMounted -= OnHeadsetOn;
         OVRManager.HMDUnmounted -= OnHeadsetOff;
     }
-    #endif
+#endif
 
     private IEnumerator CheckIfBoundaryChanged()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         RecalculateBoundary();
         
         // set environment active so you can see
@@ -170,7 +169,7 @@ public class SetupPlayer : MonoBehaviour
             _environmentParent.eulerAngles = new Vector3(0f, 90f, 0f);
         }
 
-        if (shouldUseDebugUiText && _points.Length != 0)
+        if (shouldUseDebugUiText && _points != null && _points.Length != 0)
         {
             string pointsStr = "(" + _frameCounter + ") PlayArea size:\n" + _boundarySize + "\n\n" 
                                + string.Join("\n", _points.Select(p => p.ToString()));
