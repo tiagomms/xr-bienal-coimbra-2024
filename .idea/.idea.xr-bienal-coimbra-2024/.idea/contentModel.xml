@@ -37,6 +37,7 @@
           </e>
           <e p="ChangeUiImageViaScript.cs" t="Include" />
           <e p="ChangeUiTextViaScript.cs" t="Include" />
+          <e p="ChangeUiVideoViaScript.cs" t="Include" />
           <e p="Portal" t="Include">
             <e p="AbstractPortalToSomeNewPlace.cs" t="Include" />
             <e p="PortalToNewLocationInSameScene.cs" t="Include" />
