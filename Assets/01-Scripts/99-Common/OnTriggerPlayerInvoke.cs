@@ -11,7 +11,7 @@ public class OnTriggerPlayerInvoke : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag(TagManager.PLAYER_COLLIDER_TAG))
         {
             OnTriggerEntered.Invoke(other.transform);
         }
@@ -19,7 +19,7 @@ public class OnTriggerPlayerInvoke : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag(TagManager.PLAYER_COLLIDER_TAG))
         {
             OnTriggerExited.Invoke(other.transform);
         }

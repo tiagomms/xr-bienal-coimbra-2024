@@ -31,14 +31,14 @@ public class DisableGrabbingHandModel : MonoBehaviour
     private void HideGrabbingHand(SelectEnterEventArgs args)
     {
         // TODO: get XROrigin event that detects change of hand / controller 
-        _leftHandModels = GameObject.FindGameObjectsWithTag(Tags.LEFT_HAND_MODEL_TAG);
-        _rightHandModels = GameObject.FindGameObjectsWithTag(Tags.RIGHT_HAND_MODEL_TAG);
+        _leftHandModels = GameObject.FindGameObjectsWithTag(TagManager.LEFT_HAND_MODEL_TAG);
+        _rightHandModels = GameObject.FindGameObjectsWithTag(TagManager.RIGHT_HAND_MODEL_TAG);
         
-        if (args.interactorObject.transform.parent.CompareTag(Tags.LEFT_HAND_TAG))
+        if (args.interactorObject.transform.parent.CompareTag(TagManager.LEFT_HAND_TAG))
         {
             SetActiveToGameObjectsArray(_leftHandModels, false);
         }
-        else if (args.interactorObject.transform.parent.CompareTag(Tags.RIGHT_HAND_TAG))
+        else if (args.interactorObject.transform.parent.CompareTag(TagManager.RIGHT_HAND_TAG))
         {
             SetActiveToGameObjectsArray(_rightHandModels, false);
         }
@@ -46,11 +46,11 @@ public class DisableGrabbingHandModel : MonoBehaviour
 
     private void ShowGrabbingHand(SelectExitEventArgs args)
     {
-        if (args.interactorObject.transform.parent.CompareTag(Tags.LEFT_HAND_TAG))
+        if (args.interactorObject.transform.parent.CompareTag(TagManager.LEFT_HAND_TAG))
         {
             SetActiveToGameObjectsArray(_leftHandModels, true);
         }
-        else if (args.interactorObject.transform.parent.CompareTag(Tags.RIGHT_HAND_TAG))
+        else if (args.interactorObject.transform.parent.CompareTag(TagManager.RIGHT_HAND_TAG))
         {
             SetActiveToGameObjectsArray(_rightHandModels, true);
         }

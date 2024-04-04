@@ -23,7 +23,7 @@ public class TriggerPlayerLocationMatch : MonoBehaviour
     private void OnTriggerStay(Collider other) {
         if (!_alreadyMatched)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag(TagManager.PLAYER_COLLIDER_TAG))
             {
                 if (!_isMatching && Vector3.Dot(transform.forward, other.transform.forward) > dotForwardThreshold)
                 {
@@ -69,7 +69,7 @@ public class TriggerPlayerLocationMatch : MonoBehaviour
             onMatchMoveTo.Invoke(_playerTransform);
             
             _alreadyMatched = true;
-            string s = "WE HAVE A MATCH!";
+            string s = "Good to go!";
             DebugManager.Instance.Log(s);
             if (onMatchSendString != null)
             {

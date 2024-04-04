@@ -7,37 +7,68 @@ using UnityEngine.Events;
 
 public class FadeScreen : MonoBehaviour
 {
-    [SerializeField] private bool _fadeOnStart = true;
     [SerializeField] private float _defaultFadeDuration = 3;
-    [SerializeField] private Color _fadeColor = new Color(0,0,0,1);
+    [SerializeField] private Color _fadeColor = new Color(0,0,0, 1);
+
+    private bool initialFadeInTriggered = false;
 
     private Renderer _renderer;
     private static readonly int SHADER_COLOR = Shader.PropertyToID("_BaseColor");
+    
+
+
+    public Color FadeColor
+    {
+        get => _fadeColor;
+        set => _fadeColor = value;
+    }
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
-        _renderer.material.SetColor(SHADER_COLOR, _fadeColor);
     }
 
     private void OnEnable()
     {
         AbstractPortalToSomeNewPlace.OnPortalEnter += FadeOutFromPortal;
         AbstractPortalToSomeNewPlace.OnPortalThrough += FadeInFromPortal;
+        DefaultFadeSceneSetup.TriggerFadeIn += StartFadeIn;
+        DefaultFadeSceneSetup.TriggerFadeOut += EndingFadeOut;
     }
-
+    
     private void OnDisable()
     {
         AbstractPortalToSomeNewPlace.OnPortalEnter -= FadeOutFromPortal;
         AbstractPortalToSomeNewPlace.OnPortalThrough -= FadeInFromPortal;
+        DefaultFadeSceneSetup.TriggerFadeIn -= StartFadeIn;
+        DefaultFadeSceneSetup.TriggerFadeOut -= EndingFadeOut;
+
+    }
+
+    private void EndingFadeOut(float duration, Color newColor)
+    {
+        _fadeColor = newColor;
+        FadeOut(duration);
     }
 
     private void Start()
     {
-        if (_fadeOnStart)
-        {
-            FadeIn(_defaultFadeDuration);
-        }
+        _renderer.material.SetColor(SHADER_COLOR, FadeColor);
+        StartCoroutine(InitialFadeInIfNotInvoked());
+    }
+
+    private IEnumerator InitialFadeInIfNotInvoked()
+    {
+        yield return new WaitForSeconds(1f);
+        StartFadeIn(_defaultFadeDuration, _fadeColor);
+    }
+
+    private void StartFadeIn(float duration, Color newColor)
+    {
+        if (initialFadeInTriggered) return;
+        _fadeColor = newColor;
+        initialFadeInTriggered = true;
+        FadeIn(duration);
     }
 
     private void FadeOutFromPortal(PortalSettings portalSettings)
@@ -69,7 +100,7 @@ public class FadeScreen : MonoBehaviour
     private IEnumerator FadeRoutine(float alphaIn, float alphaOut, float duration)
     {
         float timer = 0;
-        Color newColor = _fadeColor;
+        Color newColor = FadeColor;
         newColor.a = alphaIn;
 
         while (timer <= duration)
