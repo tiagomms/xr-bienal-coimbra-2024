@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00-Scenes/00-CalibrationScene.unity
+    path: Assets/00-Scenes/NAO_EDITAR/00-CalibrationScene.unity
     guid: f7b32e77c8d0fe348baec24411c70e13
   - enabled: 1
-    path: Assets/00-Scenes/01-IntroScene.unity
+    path: Assets/00-Scenes/NAO_EDITAR/01-IntroScene.unity
     guid: 5bf57cf6b05c445e6bff435a6ddfe19e
   - enabled: 1
     path: Assets/00-Scenes/02-TestScene.unity
