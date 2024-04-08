@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/00-Scenes/NAO_EDITAR/00-CalibrationScene.unity
     guid: f7b32e77c8d0fe348baec24411c70e13
   - enabled: 1
-    path: Assets/00-Scenes/NAO_EDITAR/01-IntroScene.unity
+    path: Assets/00-Scenes/NAO_EDITAR/01-StartScene.unity
     guid: 5bf57cf6b05c445e6bff435a6ddfe19e
   - enabled: 1
-    path: Assets/00-Scenes/02-TestScene.unity
-    guid: ba1530bc29998f54297299663746d82e
+    path: Assets/00-Scenes/NAO_EDITAR/02-TestScene.unity
+    guid: 35034053dfe86fe419afe73b384ba680
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

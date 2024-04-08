@@ -11,6 +11,7 @@
         <e p="01-Scripts" t="Include">
           <e p="99-Common" t="Include">
             <e p="AudioTrigger.cs" t="Include" />
+            <e p="CopyUnityEvents.cs" t="Include" />
             <e p="Debug" t="Include">
               <e p="DebugManager.cs" t="Include" />
             </e>
@@ -46,9 +47,12 @@
           <e p="ChangeUiVideoViaScript.cs" t="Include" />
           <e p="DefaultFadeSceneSetup.cs" t="Include" />
           <e p="FadeScreen.cs" t="Include" />
+          <e p="GameAreaBoundaryProperties.cs" t="Include" />
           <e p="IntroScene" t="Include">
             <e p="IntroSceneSetupBasedOnBoundary.cs" t="Include" />
           </e>
+          <e p="LevelManager.cs" t="Include" />
+          <e p="MoveXrOriginOnActions.cs" t="Include" />
           <e p="Portal" t="Include">
             <e p="AbstractPortalToSomeNewPlace.cs" t="Include" />
             <e p="PortalToNewCageInSameScene.cs" t="Include" />
@@ -139,7 +143,6 @@
             <e p="xr.sdk.sharedassets.runtime.asmdef" t="Include" />
           </e>
         </e>
-        <e p="MoveXrOriginOnActions.cs" t="Include" />
         <e p="MRTemplateAssets" t="Include">
           <e p="Scripts" t="Include">
             <e p="BooleanToggleVisualsController.cs" t="Include" />

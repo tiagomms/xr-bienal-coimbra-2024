@@ -22,8 +22,7 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     [SerializeField] private bool disableHandModelWhenGrabbing = true;
     
     private string _lastSceneName;
-    private Transform _lastSceneCageOrigin;
-    private Transform _lastSceneLocalStartLocation;
+    private GameAreaBoundaryProperties _lastSceneCageOrigin;
     private bool _isCalibrated = false;
     private bool _isBoundaryRotated = false;
     private HashSet<string> _scenesVisited = new HashSet<string>();
@@ -61,7 +60,6 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     {
         _lastSceneName = null;
         _lastSceneCageOrigin = null;
-        _lastSceneLocalStartLocation = null;
         ResetScenesVisited();
     }
 
@@ -97,7 +95,7 @@ public class GlobalManager : GenericSingleton<GlobalManager>
         set => _lastSceneName = value;
     }
 
-    public Transform LastSceneCageOrigin
+    public GameAreaBoundaryProperties LastSceneCageOrigin
     {
         get => _lastSceneCageOrigin;
         set => _lastSceneCageOrigin = value;
@@ -113,12 +111,6 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     {
         get => _isBoundaryRotated;
         set => _isBoundaryRotated = value;
-    }
-
-    public Transform LastSceneLocalStartLocation
-    {
-        get => _lastSceneLocalStartLocation;
-        set => _lastSceneLocalStartLocation = value;
     }
 
     #endregion

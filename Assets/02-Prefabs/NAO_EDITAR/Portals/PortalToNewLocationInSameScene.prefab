@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8879d0fb2903a264e8f7d9243be426e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _portalMeshPrefab: {fileID: 1686530400365238066}
+  _audioSource: {fileID: 3315316838204728782}
   portalSound: {fileID: 0}
   audioVolume: 1
   audioMaxDistance: 3
@@ -52,6 +54,7 @@ MonoBehaviour:
     enterPortalAnimDuration: 1
     leavePortalAnimDuration: 1
     fadeBaseColor: {r: 1, g: 1, b: 1, a: 1}
+  nextPlayerBoundary: {fileID: 0}
   isAlwaysOpen: 1
 --- !u!1001 &5903662543278566525
 PrefabInstance:
@@ -141,13 +144,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalMesh-NewLocationInSameScene
       objectReference: {fileID: 0}
+    - target: {fileID: 9217842406164367795, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+      propertyPath: MinDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217842406164367795, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+--- !u!1 &1686530400365238066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5082813262405253967, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+  m_PrefabInstance: {fileID: 5903662543278566525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1686530400365238067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5082813262405253966, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+  m_PrefabInstance: {fileID: 5903662543278566525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3315316838204728782 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9217842406164367795, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
   m_PrefabInstance: {fileID: 5903662543278566525}
   m_PrefabAsset: {fileID: 0}

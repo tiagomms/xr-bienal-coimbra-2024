@@ -15,11 +15,11 @@ public class SetupScene : MonoBehaviour
     [SerializeField]
     private bool _hideOnBuildHelpfulObjects = true;
 
-    [SerializeField] private Transform initialCageOrigin;
+    [SerializeField] private GameAreaBoundaryProperties initialCageOrigin;
     
     private GameObject environmentParent;
 
-    public static Action<Transform> OnSceneSetUp;
+    public static Action<GameAreaBoundaryProperties> OnSceneSetUp;
 
     private void OnEnable()
     {

@@ -3,37 +3,9 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-public class DebugManager : MonoBehaviour
+public class DebugManager : GenericSingleton<DebugManager>
 {
-    private static DebugManager _instance;
-
-    // Singleton instance
-    public static DebugManager Instance => _instance ?? (_instance = new DebugManager());
-
-    private DebugManager()
-    {
-        // avoid external instantiation
-    }
-
-    private void Awake()
-    {
-        // Ensure only one instance of the DebugManager exists
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        _instance = this;
-
-        // Only enable the logger if running in the Unity Editor
-        #if UNITY_EDITOR
-            DontDestroyOnLoad(gameObject);
-        #else
-            Destroy(gameObject);
-        #endif
-    }
-
-    #region Log
+    #region Logs
     // Log method
     public void Log(string message)
     {

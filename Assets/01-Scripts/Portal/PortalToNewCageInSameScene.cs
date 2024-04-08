@@ -10,8 +10,10 @@ using UnityEngine;
 /// </summary>
 public class PortalToNewCageInSameScene : AbstractPortalToSomeNewPlace
 {
+    [Space(height: 20)]
+    [Tooltip("Drag here the next player boundary")]
+    [SerializeField] protected GameAreaBoundaryProperties nextPlayerBoundary;
     [SerializeField] protected bool isAlwaysOpen = true;
-    
 
     protected override void Awake()
     {
@@ -20,35 +22,35 @@ public class PortalToNewCageInSameScene : AbstractPortalToSomeNewPlace
         base.Awake();
     }
 
-    public void OpenPortalToNewLocation(Transform cageOrigin)
+    public void OpenPortalToNewLocation()
     {
         portalSettings.NextSceneName = null;
-        portalSettings.NextCageOrigin = cageOrigin;
+        portalSettings.NextCageOrigin = nextPlayerBoundary;
         base.OpenPortal();
     }
 
-    public override void EnterPortal(Transform player)
+    public override void EnterPortal(Transform playerCollider)
     {
-        base.EnterPortal(player);
+        base.EnterPortal(playerCollider);
         // Teleport the player to the destination position
         if (portalSettings.NextCageOrigin != null)
         {
-            StartCoroutine(GoThroughPortalInSameScene(player));
+            StartCoroutine(GoThroughPortalInSameScene(playerCollider));
         }
     }
 
-    private IEnumerator GoThroughPortalInSameScene(Transform player)
+    private IEnumerator GoThroughPortalInSameScene(Transform playerCollider)
     {
         OnPortalEnter?.Invoke(portalSettings);
         
         yield return new WaitForSeconds(portalSettings.enterPortalAnimDuration);
         
-        LeavePortal(player);
+        LeavePortal(playerCollider);
     }
 
-    protected override void LeavePortal(Transform player)
+    protected override void LeavePortal(Transform playerCollider)
     {
-        base.LeavePortal(player);
+        base.LeavePortal(playerCollider);
 
         OnPortalThrough?.Invoke(portalSettings);
 

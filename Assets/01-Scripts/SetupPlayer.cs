@@ -64,6 +64,8 @@ public class SetupPlayer : MonoBehaviour
             _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
         }
         
+        // SOLVED: increased by accident the camera minimum clipping pane. reverted back and all is good
+        /*
         // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
         //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
         if (_xrControllerLeft != null && _xrControllerLeftStabilizer != null)
@@ -86,7 +88,7 @@ public class SetupPlayer : MonoBehaviour
             
             _xrControllerRightStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
         }
-        
+        */        
         #elif USE_QUEST 
 
 

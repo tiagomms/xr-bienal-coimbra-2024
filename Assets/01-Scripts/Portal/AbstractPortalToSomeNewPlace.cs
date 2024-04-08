@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Oculus.Interaction.PoseDetection;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum PortalType
 {
@@ -20,16 +21,23 @@ public class PortalSettings
     public PortalType PortalType { get; set; }
     public string NextSceneName { get; set; }
     
-    public Transform NextCageOrigin { get; set; }
+    public GameAreaBoundaryProperties NextCageOrigin { get; set; }
 }
 
 public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 {
+    [Tooltip("Drag here Portal Mesh if you change it")] 
+    [SerializeField]
+    protected GameObject _portalMeshPrefab;
+    
+    [Space(height: 20)]
+    [Tooltip("Set portal sound when opened, if you want")]
+    [SerializeField] protected AudioSource _audioSource;
     [SerializeField] protected AudioClip portalSound;
     [SerializeField] protected float audioVolume = 1f;
     [SerializeField] protected float audioMaxDistance = 3f;
 
-    [Space(height: 10)] 
+    [Space(height: 20)] 
     [Tooltip("Portal Settings when Fading")]
     [SerializeField] protected PortalSettings portalSettings;
     
@@ -38,15 +46,11 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 
     protected bool AlwaysOpenFlag = false;
     private bool _isOpen = false;
-    private AudioSource _audioSource;
-    private GameObject _portalPrefab;
     
     protected virtual void Awake()
     {
-        _audioSource = GetComponentInChildren<AudioSource>();
-        _portalPrefab = transform.GetChild(0).gameObject;
         // to make sure portal is not seen at start unless it is always open
-        _portalPrefab.SetActive(AlwaysOpenFlag);
+        _portalMeshPrefab.SetActive(AlwaysOpenFlag);
         _isOpen = AlwaysOpenFlag;
     }
 
@@ -63,7 +67,7 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
         if (_isOpen && !AlwaysOpenFlag) return;
         
         _isOpen = true;
-        _portalPrefab.SetActive(true);
+        _portalMeshPrefab.SetActive(true);
         
         if (_audioSource != null && portalSound != null)
         {
@@ -83,7 +87,7 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
         if (!(_isOpen && !AlwaysOpenFlag)) return;
         
         _isOpen = false;
-        _portalPrefab.SetActive(false);
+        _portalMeshPrefab.SetActive(false);
         portalSettings.NextSceneName = null;
         
             

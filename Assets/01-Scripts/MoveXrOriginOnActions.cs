@@ -29,14 +29,14 @@ public class MoveXrOriginOnActions : MonoBehaviour
         MoveXrOrigin(portalSettings.NextCageOrigin);
     }
     
-    public void MoveXrOrigin(Transform nextCageOrigin)
+    public void MoveXrOrigin(GameAreaBoundaryProperties nextCageOrigin)
     {
         _characterController.enabled = false;
         
-        transform.position = nextCageOrigin.position;
+        transform.position = nextCageOrigin.transform.position;
         // explainer: Environment is the parent and it may be rotated 90 degrees based on boundary size
         // so what matters is the fake cage local rotation
-        transform.rotation = nextCageOrigin.localRotation;
+        transform.rotation = nextCageOrigin.transform.localRotation;
         _characterController.enabled = true;
     }
 }
