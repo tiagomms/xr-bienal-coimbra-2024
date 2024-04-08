@@ -18,7 +18,7 @@ public class PortalToNewScene : AbstractPortalToSomeNewPlace
     public void OpenPortalToNewScene(string nextSceneName)
     {
         portalSettings.NextSceneName = nextSceneName;
-        portalSettings.NextLocation = null;
+        portalSettings.NextCageOrigin = null;
         base.OpenPortal();
     }
     

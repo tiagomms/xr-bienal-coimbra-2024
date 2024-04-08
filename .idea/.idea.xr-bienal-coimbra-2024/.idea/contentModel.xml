@@ -10,6 +10,7 @@
       <e p="Assets" t="Include">
         <e p="01-Scripts" t="Include">
           <e p="99-Common" t="Include">
+            <e p="AudioTrigger.cs" t="Include" />
             <e p="Debug" t="Include">
               <e p="DebugManager.cs" t="Include" />
             </e>
@@ -26,7 +27,6 @@
               <e p="VoidGameEventListener.cs" t="Include" />
             </e>
             <e p="GenericSingleton.cs" t="Include" />
-            <e p="GlobalDefinesWizard.cs" t="Include" />
             <e p="GlobalManager.cs" t="Include" />
             <e p="LoadScene.cs" t="Include" />
             <e p="OnTimedInterval.cs" t="Include" />
@@ -51,7 +51,7 @@
           </e>
           <e p="Portal" t="Include">
             <e p="AbstractPortalToSomeNewPlace.cs" t="Include" />
-            <e p="PortalToNewLocationInSameScene.cs" t="Include" />
+            <e p="PortalToNewCageInSameScene.cs" t="Include" />
             <e p="PortalToNewScene.cs" t="Include" />
           </e>
           <e p="SceneTransitionManager.cs" t="Include" />
@@ -139,6 +139,7 @@
             <e p="xr.sdk.sharedassets.runtime.asmdef" t="Include" />
           </e>
         </e>
+        <e p="MoveXrOriginOnActions.cs" t="Include" />
         <e p="MRTemplateAssets" t="Include">
           <e p="Scripts" t="Include">
             <e p="BooleanToggleVisualsController.cs" t="Include" />

@@ -34,13 +34,13 @@ public class DefaultFadeSceneSetup : MonoBehaviour
     public void GoToNextScene()
     {
         DefaultFadeSceneSetup.TriggerFadeOut.Invoke(defaultFadeOutDuration, defaultFadeOutColor);
-        if (GlobalManager.Instance.lastSceneName == null)
+        if (GlobalManager.Instance.LastSceneName == null)
         {
             SceneTransitionManager.Instance.GoToSceneAsyncByIndexInXSeconds(1, defaultFadeOutDuration);
         }
         else
         {
-            SceneTransitionManager.Instance.GoToSceneAsyncInXSeconds(GlobalManager.Instance.lastSceneName, defaultFadeOutDuration);
+            SceneTransitionManager.Instance.GoToSceneAsyncInXSeconds(GlobalManager.Instance.LastSceneName, defaultFadeOutDuration);
         }
     }
     

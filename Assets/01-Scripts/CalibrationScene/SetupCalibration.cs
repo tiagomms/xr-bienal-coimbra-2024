@@ -40,19 +40,27 @@ public class SetupCalibration : MonoBehaviour
             uiParentObject.SetActive(false);
         #endif
 
-        if (!GlobalManager.Instance.isCalibrated || GlobalManager.Instance.lastScenePortalEntry == null)
+        /*
+        if (!GlobalManager.Instance.IsCalibrated || GlobalManager.Instance.LastSceneCageOrigin == null)
         {
             startLocation.position = new Vector3();
         }
         else
         {
-            startLocation.position = GlobalManager.Instance.lastScenePortalEntry.position;
-            startLocation.rotation = GlobalManager.Instance.lastScenePortalEntry.rotation;
+            startLocation.position = GlobalManager.Instance.LastSceneCageOrigin.position;
+            startLocation.rotation = GlobalManager.Instance.LastSceneCageOrigin.rotation;
+        }
+        */
+
+        if (!GlobalManager.Instance.IsCalibrated)
+        {
+            startLocation.position = new Vector3();
         }
 
         #if USE_QUEST
-        if (!GlobalManager.Instance.isCalibrated)
+        if (!GlobalManager.Instance.IsCalibrated)
         {
+            startLocation.position = new Vector3();
             StartCoroutine(PerformCalibrationSetup());
         }
         #endif
@@ -62,7 +70,7 @@ public class SetupCalibration : MonoBehaviour
     {
         startLocation.gameObject.SetActive(false);
         
-        while (_calibrationCounter < maxCalibrationAttempts && !GlobalManager.Instance.isCalibrated)
+        while (_calibrationCounter < maxCalibrationAttempts && !GlobalManager.Instance.IsCalibrated)
         {
             yield return new WaitForSeconds(secondsBetweenCalibrations);
             CalculateBoundary();
@@ -77,7 +85,7 @@ public class SetupCalibration : MonoBehaviour
         else
         {
             uiParentObject.SetActive(true);
-            WriteToDebug("Calibration error occured\nPlease take headset off and put it on again");
+            WriteToDebug("Calibration error occured\nPlease take headset off and put it on again\nIf that doesn't work press Meta's on/off button.");
         }
     }
 
@@ -90,8 +98,8 @@ public class SetupCalibration : MonoBehaviour
 
             if (GlobalManager.Instance.boundaryPoints != null)
             {
-                GlobalManager.Instance.isBoundaryRotated = GlobalManager.Instance.boundarySize.x > GlobalManager.Instance.boundarySize.z;
-                GlobalManager.Instance.isCalibrated = true;
+                GlobalManager.Instance.IsBoundaryRotated = GlobalManager.Instance.boundarySize.x > GlobalManager.Instance.boundarySize.z;
+                GlobalManager.Instance.IsCalibrated = true;
 
                 if (shouldUseDebugUiText)
                 {

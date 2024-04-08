@@ -8,7 +8,7 @@ using UnityEngine;
 /// in the same scene.
 /// Usually it will be always open - but depending on setup users may open it up
 /// </summary>
-public class PortalToNewLocationInSameScene : AbstractPortalToSomeNewPlace
+public class PortalToNewCageInSameScene : AbstractPortalToSomeNewPlace
 {
     [SerializeField] protected bool isAlwaysOpen = true;
     
@@ -20,10 +20,10 @@ public class PortalToNewLocationInSameScene : AbstractPortalToSomeNewPlace
         base.Awake();
     }
 
-    public void OpenPortalToNewLocation(Transform transformIfSameScene)
+    public void OpenPortalToNewLocation(Transform cageOrigin)
     {
         portalSettings.NextSceneName = null;
-        portalSettings.NextLocation = transformIfSameScene;
+        portalSettings.NextCageOrigin = cageOrigin;
         base.OpenPortal();
     }
 
@@ -31,7 +31,7 @@ public class PortalToNewLocationInSameScene : AbstractPortalToSomeNewPlace
     {
         base.EnterPortal(player);
         // Teleport the player to the destination position
-        if (portalSettings.NextLocation != null)
+        if (portalSettings.NextCageOrigin != null)
         {
             StartCoroutine(GoThroughPortalInSameScene(player));
         }
@@ -52,7 +52,5 @@ public class PortalToNewLocationInSameScene : AbstractPortalToSomeNewPlace
 
         OnPortalThrough?.Invoke(portalSettings);
 
-        // TODO: check if rotation is needed to change as well
-        player.position = portalSettings.NextLocation.position;
     }
 }

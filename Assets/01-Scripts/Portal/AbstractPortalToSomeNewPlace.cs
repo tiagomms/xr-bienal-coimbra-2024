@@ -20,7 +20,7 @@ public class PortalSettings
     public PortalType PortalType { get; set; }
     public string NextSceneName { get; set; }
     
-    public Transform NextLocation { get; set; }
+    public Transform NextCageOrigin { get; set; }
 }
 
 public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour

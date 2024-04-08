@@ -42,6 +42,13 @@ public class DebugManager : MonoBehaviour
         #endif
     }
 
+    public void Warning(string message)
+    {
+        #if UNITY_EDITOR
+            Debug.LogWarning(message);
+        #endif
+    }
+
     // Add other logging methods as needed (Warning, Error, etc.)
 
     #endregion

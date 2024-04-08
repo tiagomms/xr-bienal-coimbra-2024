@@ -24,10 +24,7 @@ public class SetupXrGrabbableObjects : MonoBehaviour
     [Space(height: 10)]
     [Tooltip("Meshcollider definitions")]
     [SerializeField] private bool setAllConvex = true;
-
-    [Space(height: 10)] [Tooltip("Disable Hand Model When Grabbing Object")] 
-    [SerializeField] private bool shouldDisableHandModelWhenGrabbing = true;
-
+    
     private Rigidbody _rigidbody;
     private XRGrabInteractable _xrGrabInteractable;
     private MeshCollider[] _meshColliders;
@@ -59,8 +56,11 @@ public class SetupXrGrabbableObjects : MonoBehaviour
         _xrGrabInteractable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
         _xrGrabInteractable.useDynamicAttach = true;
         
-        // disable hand model when grabbing object?
-        _disableGrabbingHandModel.enabled = shouldDisableHandModelWhenGrabbing;
     }
 
+    private void Start()
+    {
+        // disable hand model when grabbing object?
+        _disableGrabbingHandModel.enabled = GlobalManager.Instance.DisableHandModelWhenGrabbing;
+    }
 }

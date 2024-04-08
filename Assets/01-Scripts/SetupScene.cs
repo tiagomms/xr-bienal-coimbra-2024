@@ -14,8 +14,12 @@ public class SetupScene : MonoBehaviour
 {
     [SerializeField]
     private bool _hideOnBuildHelpfulObjects = true;
+
+    [SerializeField] private Transform initialCageOrigin;
     
     private GameObject environmentParent;
+
+    public static Action<Transform> OnSceneSetUp;
 
     private void OnEnable()
     {
@@ -34,6 +38,15 @@ public class SetupScene : MonoBehaviour
     {
         HideHelpfulObjects();
         RotateEnvironmentIfNeeded();
+        
+        if (initialCageOrigin != null)
+        {
+            OnSceneSetUp?.Invoke(initialCageOrigin);
+        }
+        else
+        {
+            DebugManager.Instance.Warning("Jaula inicial não foi definida em SetUpScene. Pode levar a erros!");
+        }
     }
 
     private void HideHelpfulObjects()
@@ -51,11 +64,11 @@ public class SetupScene : MonoBehaviour
 
     private void RotateEnvironmentIfNeeded()
     {
-        if (!GlobalManager.Instance.isCalibrated) return;
+        if (!GlobalManager.Instance.IsCalibrated) return;
 
         environmentParent = GameObject.FindWithTag(TagManager.ENVIRONMENT_TAG);
 
-        if (GlobalManager.Instance.isBoundaryRotated)
+        if (GlobalManager.Instance.IsBoundaryRotated)
         {
             environmentParent.transform.eulerAngles = new Vector3(0f, 90f, 0f);
         }
