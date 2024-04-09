@@ -27,8 +27,8 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     private bool _isBoundaryRotated = false;
     private HashSet<string> _scenesVisited = new HashSet<string>();
     
-    public Vector3 boundarySize;
-    public Vector3[] boundaryPoints;
+    private Vector3 _boundarySize;
+    private Vector3[] _boundaryPoints;
     
     public static Action OnCalibrationCompleted;
     public static Action OnCalibrationLost;
@@ -111,6 +111,18 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     {
         get => _isBoundaryRotated;
         set => _isBoundaryRotated = value;
+    }
+
+    public Vector3 BoundarySize
+    {
+        get => _boundarySize;
+        set => _boundarySize = value;
+    }
+
+    public Vector3[] BoundaryPoints
+    {
+        get => _boundaryPoints;
+        set => _boundaryPoints = value;
     }
 
     #endregion

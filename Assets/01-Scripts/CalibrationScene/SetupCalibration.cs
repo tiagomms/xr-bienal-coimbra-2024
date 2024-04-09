@@ -93,19 +93,20 @@ public class SetupCalibration : MonoBehaviour
     {
         if (OVRManager.boundary.GetConfigured())
         {
-            GlobalManager.Instance.boundarySize = OVRManager.boundary.GetDimensions(OVRBoundary.BoundaryType.PlayArea);
-            GlobalManager.Instance.boundaryPoints = OVRManager.boundary.GetGeometry(OVRBoundary.BoundaryType.PlayArea);
+            GlobalManager.Instance.BoundarySize = OVRManager.boundary.GetDimensions(OVRBoundary.BoundaryType.PlayArea);
+            GlobalManager.Instance.BoundaryPoints = OVRManager.boundary.GetGeometry(OVRBoundary.BoundaryType.PlayArea);
 
-            if (GlobalManager.Instance.boundaryPoints != null)
+            if (GlobalManager.Instance.BoundaryPoints != null)
             {
-                GlobalManager.Instance.IsBoundaryRotated = GlobalManager.Instance.boundarySize.x > GlobalManager.Instance.boundarySize.z;
+                GlobalManager.Instance.IsBoundaryRotated = GlobalManager.Instance.BoundarySize.x > GlobalManager.Instance.BoundarySize.z;
                 GlobalManager.Instance.IsCalibrated = true;
 
                 if (shouldUseDebugUiText)
                 {
                     uiParentObject.SetActive(true);
-                    string pointsStr = "(" + _calibrationCounter + ") PlayArea size:\n" + GlobalManager.Instance.boundarySize + "\n\n" 
-                                       + string.Join("\n", GlobalManager.Instance.boundaryPoints.Select(p => p.ToString()));
+                    string pointsStr = "PlayArea size:\n" + GlobalManager.Instance.BoundarySize; 
+                    //string pointsStr = "(" + _calibrationCounter + ") PlayArea size:\n" + GlobalManager.Instance.BoundarySize + "\n\n" 
+                      //                 + string.Join("\n", GlobalManager.Instance.BoundaryPoints.Select(p => p.ToString()));
                     WriteToDebug(pointsStr);    
                 }
             }

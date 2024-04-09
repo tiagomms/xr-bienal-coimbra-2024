@@ -13,12 +13,10 @@ public class PortalToNewCageInSameScene : AbstractPortalToSomeNewPlace
     [Space(height: 20)]
     [Tooltip("Drag here the next player boundary")]
     [SerializeField] protected GameAreaBoundaryProperties nextPlayerBoundary;
-    [SerializeField] protected bool isAlwaysOpen = true;
 
     protected override void Awake()
     {
         portalSettings.PortalType = PortalType.ToNewLocationInSameScene;
-        AlwaysOpenFlag = isAlwaysOpen;
         base.Awake();
     }
 

@@ -29,6 +29,9 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     [Tooltip("Drag here Portal Mesh if you change it")] 
     [SerializeField]
     protected GameObject _portalMeshPrefab;
+    [Tooltip("Check to make sure portal is always open")]
+    [SerializeField] protected bool isAlwaysOpen = false;
+
     
     [Space(height: 20)]
     [Tooltip("Set portal sound when opened, if you want")]
@@ -44,19 +47,18 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     public static Action<PortalSettings> OnPortalEnter;
     public static Action<PortalSettings> OnPortalThrough;
 
-    protected bool AlwaysOpenFlag = false;
     private bool _isOpen = false;
     
     protected virtual void Awake()
     {
         // to make sure portal is not seen at start unless it is always open
-        _portalMeshPrefab.SetActive(AlwaysOpenFlag);
-        _isOpen = AlwaysOpenFlag;
+        _portalMeshPrefab.SetActive(isAlwaysOpen);
+        _isOpen = isAlwaysOpen;
     }
 
     protected virtual void Start()
     {
-        if (AlwaysOpenFlag)
+        if (isAlwaysOpen)
         {
             OpenPortal();
         }
@@ -64,7 +66,7 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 
     protected virtual void OpenPortal()
     {
-        if (_isOpen && !AlwaysOpenFlag) return;
+        if (_isOpen && !isAlwaysOpen) return;
         
         _isOpen = true;
         _portalMeshPrefab.SetActive(true);
@@ -84,7 +86,7 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     /// </summary>
     public virtual void ClosePortal()
     {
-        if (!(_isOpen && !AlwaysOpenFlag)) return;
+        if (!(_isOpen && !isAlwaysOpen)) return;
         
         _isOpen = false;
         _portalMeshPrefab.SetActive(false);
