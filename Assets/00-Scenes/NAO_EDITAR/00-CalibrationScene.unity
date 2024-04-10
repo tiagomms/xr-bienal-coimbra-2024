@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab20c9661c4d4a04fa22bec570917b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _globalSettings: {fileID: 11400000, guid: 630450bee0fb8584dac9af3df7f9ffad, type: 2}
   startLocation: {fileID: 1749830831}
   uiParentObject: {fileID: 541712817}
   shouldUseDebugUiText: 1
@@ -364,7 +365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &541712818
 Transform:
   m_ObjectHideFlags: 0
@@ -653,7 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4634a6503ef0eb42ba06650caa48fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableHandModelWhenGrabbing: 1
 --- !u!4 &1685073418
 Transform:
   m_ObjectHideFlags: 0

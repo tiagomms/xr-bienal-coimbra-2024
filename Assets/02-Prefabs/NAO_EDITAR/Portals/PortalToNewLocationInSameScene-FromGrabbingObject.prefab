@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4797319250834115363, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4797319250834115363, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -259,15 +259,15 @@ PrefabInstance:
       objectReference: {fileID: 2400816376060450253}
     - target: {fileID: 4797319250834115363, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPortalToNewLocation
+      value: EnterPortal
       objectReference: {fileID: 0}
     - target: {fileID: 4797319250834115363, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PortalToNewLocationInSameScene, Assembly-CSharp
+      value: PortalToNewCageInSameScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4797319250834115363, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Transform, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5082813262405253966, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: m_LocalScale.y

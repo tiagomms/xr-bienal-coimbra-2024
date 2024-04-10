@@ -81,12 +81,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 11e4df15a90ebbe458884980640bd1c4, type: 2}
     - target: {fileID: 4797319250834115363, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
+      propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797319250834115363, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6889986379155278446}
     - target: {fileID: 4797319250834115363, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnterPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797319250834115363, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
+      propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5082813262405253966, guid: 928102ff2d5882247aab36cc6d639576, type: 3}
       propertyPath: m_LocalScale.x
