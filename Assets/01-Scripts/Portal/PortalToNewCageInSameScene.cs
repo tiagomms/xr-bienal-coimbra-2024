@@ -22,9 +22,13 @@ public class PortalToNewCageInSameScene : AbstractPortalToSomeNewPlace
 
     public void OpenPortalToNewLocation()
     {
+        base.OpenPortal();
+    }
+
+    protected override void SetPortalNextStepSettings()
+    {
         portalSettings.NextSceneName = null;
         portalSettings.NextCageOrigin = nextPlayerBoundary;
-        base.OpenPortal();
     }
 
     public override void EnterPortal(Transform playerCollider)

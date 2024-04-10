@@ -156,6 +156,8 @@ MonoBehaviour:
   _xrPlayer: {fileID: 4335499941147537075}
   _xrSimulator: {fileID: 2387405576075636316}
   _ovrManager: {fileID: 7589723990061991959}
+  _xrOrigin: {fileID: 5662492593198493110}
+  _characterControllerDriver: {fileID: 626553869295775365}
   _xrControllerLeft: {fileID: 6831643524525102346}
   _xrControllerLeftStabilizer: {fileID: 6285944679998392045}
   _xrControllerRight: {fileID: 6831643526160930283}
@@ -665,6 +667,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5834979064892102249}
   m_SourcePrefab: {fileID: 100100000, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+--- !u!114 &626553869295775365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4078678170581458337, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267444672014068791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2591831765876359469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1428659235281105417, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
@@ -770,6 +783,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa620b57846c5ed46ae841764d19095e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5662492593198493110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9132913291935407762, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267444672014068791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5954343739862186209 stripped

@@ -15,7 +15,15 @@ public class DefaultFadeSceneSetup : MonoBehaviour
     
     public static Action<float, Color> TriggerFadeIn;
     public static Action<float, Color> TriggerFadeOut;
-    
+
+    public float DefaultFadeOutDuration => defaultFadeOutDuration;
+
+    public Color DefaultFadeOutColor => defaultFadeOutColor;
+
+    public float FadeInDuration => fadeInDuration;
+
+    public Color FadeInColor => fadeInColor;
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += FadeInAtSceneLoaded;
@@ -28,19 +36,19 @@ public class DefaultFadeSceneSetup : MonoBehaviour
     
     private void FadeInAtSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        DefaultFadeSceneSetup.TriggerFadeIn.Invoke(fadeInDuration, fadeInColor);
+        DefaultFadeSceneSetup.TriggerFadeIn.Invoke(FadeInDuration, FadeInColor);
     }
     
     public void GoToNextScene()
     {
-        DefaultFadeSceneSetup.TriggerFadeOut.Invoke(defaultFadeOutDuration, defaultFadeOutColor);
+        DefaultFadeSceneSetup.TriggerFadeOut.Invoke(DefaultFadeOutDuration, DefaultFadeOutColor);
         if (GlobalManager.Instance.LastSceneName == null)
         {
-            SceneTransitionManager.Instance.GoToSceneAsyncByIndexInXSeconds(1, defaultFadeOutDuration);
+            SceneTransitionManager.Instance.GoToSceneAsyncByIndexInXSeconds(1, DefaultFadeOutDuration);
         }
         else
         {
-            SceneTransitionManager.Instance.GoToSceneAsyncInXSeconds(GlobalManager.Instance.LastSceneName, defaultFadeOutDuration);
+            SceneTransitionManager.Instance.GoToSceneAsyncInXSeconds(GlobalManager.Instance.LastSceneName, DefaultFadeOutDuration);
         }
     }
     

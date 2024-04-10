@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323607502198671887, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: m_Size.z
-      value: 0.9463272
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323607502198671887, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+      propertyPath: m_Center.x
+      value: 0.00000012886368
       objectReference: {fileID: 0}
     - target: {fileID: 3323607502198671887, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: m_Center.y
@@ -78,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323607502198671887, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: m_Center.z
-      value: -0.38982773
+      value: -0.126
       objectReference: {fileID: 0}
     - target: {fileID: 4797319250834115363, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
       propertyPath: onMatchMoveTo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

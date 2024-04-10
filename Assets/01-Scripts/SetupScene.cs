@@ -1,9 +1,3 @@
-#if UNITY_EDITOR_OSX 
-#define USE_SIMULATOR
-#elif UNITY_ANDROID || UNITY_EDITOR_WIN
-#define USE_QUEST
-#endif
-
 using System;
 using System.Collections;
 using System.Collections.Generic;

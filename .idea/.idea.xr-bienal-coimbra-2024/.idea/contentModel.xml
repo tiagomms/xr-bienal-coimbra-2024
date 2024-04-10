@@ -9,6 +9,17 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="01-Scripts" t="Include">
+          <e p="00-SceneScripts" t="Include">
+            <e p="CalibrationScene" t="Include">
+              <e p="SetupCalibration.cs" t="Include" />
+            </e>
+            <e p="IntroScene" t="Include">
+              <e p="IntroSceneSetupBasedOnBoundary.cs" t="Include" />
+            </e>
+            <e p="StartScene" t="Include">
+              <e p="SetupStartScene.cs" t="Include" />
+            </e>
+          </e>
           <e p="99-Common" t="Include">
             <e p="AudioTrigger.cs" t="Include" />
             <e p="Debug" t="Include">
@@ -39,18 +50,12 @@
               <e p="XRHeadsetDetector.cs" t="Include" />
             </e>
           </e>
-          <e p="CalibrationScene" t="Include">
-            <e p="SetupCalibration.cs" t="Include" />
-          </e>
           <e p="ChangeUiImageViaScript.cs" t="Include" />
           <e p="ChangeUiTextViaScript.cs" t="Include" />
           <e p="ChangeUiVideoViaScript.cs" t="Include" />
           <e p="DefaultFadeSceneSetup.cs" t="Include" />
           <e p="FadeScreen.cs" t="Include" />
           <e p="GameAreaBoundaryProperties.cs" t="Include" />
-          <e p="IntroScene" t="Include">
-            <e p="IntroSceneSetupBasedOnBoundary.cs" t="Include" />
-          </e>
           <e p="LevelManager.cs" t="Include" />
           <e p="MoveXrOriginOnActions.cs" t="Include" />
           <e p="Portal" t="Include">
@@ -63,9 +68,6 @@
           <e p="SetupScene.cs" t="Include" />
           <e p="TriggerCapsuleColliderFollowCamera.cs" t="Include" />
           <e p="TriggerPlayerLocationMatch.cs" t="Include" />
-        </e>
-        <e p="10-ScriptableObjects" t="Include">
-          <e p="GlobalSetup.cs" t="Include" />
         </e>
         <e p="com.meta.xr.sdk.sharedassets@60.0.0" t="Include">
           <e p="Editor" t="Include">

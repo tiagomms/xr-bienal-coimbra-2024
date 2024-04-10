@@ -1,4 +1,4 @@
-#if UNITY_EDITOR_OSX 
+#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
 #define USE_SIMULATOR
 #elif UNITY_ANDROID || UNITY_EDITOR_WIN
 #define USE_QUEST
@@ -13,6 +13,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 using UnityEngine.XR.Management;
 
@@ -26,7 +27,14 @@ public class SetupPlayer : MonoBehaviour
     private GameObject _xrSimulator;
     
     [SerializeField]
-    private OVRManager _ovrManager;
+    private OVRManager _ovrManager;    
+    
+    [SerializeField]
+    private XROrigin _xrOrigin;
+    
+    [SerializeField]
+    private CharacterControllerDriver _characterControllerDriver;
+
 
     [Space(height: 10)]
     [SerializeField]
@@ -39,6 +47,7 @@ public class SetupPlayer : MonoBehaviour
     private Transform _xrControllerRightStabilizer;
     [SerializeField]
     private Vector3 _xrSimulatorMoveControllersLocalPosition = new Vector3(0, 0, 0.1f);
+
     
     
     /// <summary>
@@ -53,6 +62,8 @@ public class SetupPlayer : MonoBehaviour
     private void Awake()
     {
         _xrPlayer.SetActive(true);
+        
+        
 
 
         #if USE_SIMULATOR
@@ -64,31 +75,11 @@ public class SetupPlayer : MonoBehaviour
             _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
         }
         
-        // SOLVED: increased by accident the camera minimum clipping pane. reverted back and all is good
-        /*
+        
         // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
         //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
-        if (_xrControllerLeft != null && _xrControllerLeftStabilizer != null)
-        {
-            
-            for (int i = 0; i < _xrControllerLeft.childCount; i++)
-            {
-                _xrControllerLeft.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
-            }
-            
-            _xrControllerLeftStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
-        }       
-        if (_xrControllerRight != null && _xrControllerRightStabilizer != null)
-        {
-            
-            for (int i = 0; i < _xrControllerRight.childCount; i++)
-            {
-                _xrControllerRight.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
-            }
-            
-            _xrControllerRightStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
-        }
-        */        
+        // SOLVED: increased by accident the camera minimum clipping pane. reverted back and all is good
+   
         #elif USE_QUEST 
 
 
@@ -97,8 +88,18 @@ public class SetupPlayer : MonoBehaviour
         _xrSimulator.SetActive(false);
         _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.FloorLevel;
         
+        
         #endif
     }
 
+    private void Start()
+    {
+        #if USE_SIMULATOR
+        _characterControllerDriver.enabled = true;
+        #elif USE_QUEST
+        _characterControllerDriver.enabled = false;
+        #endif
+
+    }
 }
 

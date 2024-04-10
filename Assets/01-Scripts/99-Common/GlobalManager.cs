@@ -1,18 +1,5 @@
-/*
- * So if build is made for UNITY_ANDROID it is true for both editors. In order to not change things over laziness,
- * I use #if and #elif
- */
-#if UNITY_EDITOR_OSX 
-#define USE_SIMULATOR
-#elif UNITY_ANDROID || UNITY_EDITOR_WIN
-#define USE_QUEST
-#endif
-
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class GlobalManager : GenericSingleton<GlobalManager>
@@ -97,7 +84,7 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     #region Setters/Getters
     public HashSet<string> ScenesVisited => _scenesVisited;
 
-    public bool DisableHandModelWhenGrabbing => _globalSettings.DisableHandModelWhenGrabbing;
+    public bool DisableHandModelWhenGrabbing => _globalSettings != null && _globalSettings. DisableHandModelWhenGrabbing;
 
     public void AddSceneVisited(string sceneName)
     {

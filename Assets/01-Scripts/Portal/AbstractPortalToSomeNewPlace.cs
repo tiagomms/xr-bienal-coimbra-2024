@@ -105,7 +105,8 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     {
         if (!_isOpen)
             return;
-        
+        SetPortalNextStepSettings();
+
     }
     
     protected virtual void LeavePortal(Transform player)
@@ -114,4 +115,6 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
             return;
         
     }
+
+    protected abstract void SetPortalNextStepSettings();
 }

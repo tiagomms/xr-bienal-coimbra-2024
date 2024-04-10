@@ -21,15 +21,18 @@ public class PortalToNewScene : AbstractPortalToSomeNewPlace
     // MARK: I know this situation is not ideal, but UnityEvents were killing me. Better keep it simple
     public void OpenPortalToNewScene()
     {
+        base.OpenPortal();
+    }
+    
+    protected override void SetPortalNextStepSettings()
+    {
         portalSettings.NextSceneName = nextSceneName;
         portalSettings.NextCageOrigin = null;
-        base.OpenPortal();
     }
     
     public override void EnterPortal(Transform player)
     {
         base.EnterPortal(player);
-
         if (portalSettings.NextSceneName != null)
         {
             // Scene Transition Manager is reading this

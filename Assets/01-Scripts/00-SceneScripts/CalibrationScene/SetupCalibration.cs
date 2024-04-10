@@ -33,6 +33,8 @@ public class SetupCalibration : MonoBehaviour
     
     [SerializeField] 
     private float secondsBetweenCalibrations = 2f;
+
+    [SerializeField] private DefaultFadeSceneSetup defaultFadeSceneSetup;
     
     private int _calibrationCounter;
 
@@ -70,9 +72,9 @@ public class SetupCalibration : MonoBehaviour
             startLocation.position = new Vector3();
             StartCoroutine(PerformCalibrationSetup());
         }
+        OnCalibrationStart.Invoke(_globalSettings);
         #endif
         
-        OnCalibrationStart.Invoke(_globalSettings);
     }
     
     private IEnumerator PerformCalibrationSetup()
@@ -130,5 +132,11 @@ public class SetupCalibration : MonoBehaviour
         }
 
         DebugManager.Instance.Log(text);
+    }
+    
+    public void GoToStartScene()
+    {
+        DefaultFadeSceneSetup.TriggerFadeOut.Invoke(defaultFadeSceneSetup.DefaultFadeOutDuration, defaultFadeSceneSetup.DefaultFadeOutColor);
+        SceneTransitionManager.Instance.GoToSceneAsyncByIndexInXSeconds(1, defaultFadeSceneSetup.DefaultFadeOutDuration);
     }
 }
