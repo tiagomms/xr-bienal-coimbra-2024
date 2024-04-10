@@ -4,6 +4,7 @@
 #define USE_QUEST
 #endif
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ using UnityEngine;
 
 public class SetupCalibration : MonoBehaviour
 {
+    [Tooltip("Global Settings for testing/playing game - Mandatory")] 
+    [SerializeField]
+    private GlobalSettings _globalSettings;
+
     [SerializeField]
     private Transform startLocation;
 
@@ -30,6 +35,8 @@ public class SetupCalibration : MonoBehaviour
     private float secondsBetweenCalibrations = 2f;
     
     private int _calibrationCounter;
+
+    public static Action<GlobalSettings> OnCalibrationStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +71,8 @@ public class SetupCalibration : MonoBehaviour
             StartCoroutine(PerformCalibrationSetup());
         }
         #endif
+        
+        OnCalibrationStart.Invoke(_globalSettings);
     }
     
     private IEnumerator PerformCalibrationSetup()

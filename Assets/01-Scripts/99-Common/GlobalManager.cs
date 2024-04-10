@@ -18,9 +18,7 @@ using UnityEngine;
 public class GlobalManager : GenericSingleton<GlobalManager>
 {
     // TODO: create scriptable objects to handle disable/or not disable hand model when grabbing stuff (or other global definitions)
-    [Space(height: 10)] [Tooltip("Disable Hand Model When Grabbing Object")]
-    [SerializeField] private bool disableHandModelWhenGrabbing = true;
-    
+    private GlobalSettings _globalSettings;
     private string _lastSceneName;
     private GameAreaBoundaryProperties _lastSceneCageOrigin;
     private bool _isCalibrated = false;
@@ -33,16 +31,38 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     public static Action OnCalibrationCompleted;
     public static Action OnCalibrationLost;
 
+    private void Start()
+    {
+        ResetToCalibrationScene();
+    }
+
     private void OnEnable()
     {
-        OVRManager.HMDMounted += OnHeadsetOn;
-        OVRManager.HMDUnmounted += OnHeadsetOff;
+        SetupCalibration.OnCalibrationStart += SetGlobalSettings;
     }
 
     private void OnDisable()
     {
-        OVRManager.HMDMounted -= OnHeadsetOn;
-        OVRManager.HMDUnmounted -= OnHeadsetOff;
+        if (_globalSettings != null && _globalSettings.EnableCalibrationOnTakingHeadsetOff)
+        {
+            OVRManager.HMDMounted -= OnHeadsetOn;
+            OVRManager.HMDUnmounted -= OnHeadsetOff;    
+        }
+        SetupCalibration.OnCalibrationStart -= SetGlobalSettings;
+    }
+
+    private void SetGlobalSettings(GlobalSettings newSettings)
+    {
+        // only apply once
+        if (_globalSettings != null) return;
+
+        _globalSettings = newSettings;
+
+        if (_globalSettings.EnableCalibrationOnTakingHeadsetOff)
+        {
+            OVRManager.HMDMounted += OnHeadsetOn;
+            OVRManager.HMDUnmounted += OnHeadsetOff;
+        }
     }
 
     private void OnHeadsetOff()
@@ -51,6 +71,11 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     }
 
     private void OnHeadsetOn()
+    {
+        ResetToCalibrationScene();
+    }
+
+    private void ResetToCalibrationScene()
     {
         SceneTransitionManager.Instance.GoToSceneAsyncByIndexInXSeconds(0, 1);
     }
@@ -72,7 +97,7 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     #region Setters/Getters
     public HashSet<string> ScenesVisited => _scenesVisited;
 
-    public bool DisableHandModelWhenGrabbing => disableHandModelWhenGrabbing;
+    public bool DisableHandModelWhenGrabbing => _globalSettings.DisableHandModelWhenGrabbing;
 
     public void AddSceneVisited(string sceneName)
     {
