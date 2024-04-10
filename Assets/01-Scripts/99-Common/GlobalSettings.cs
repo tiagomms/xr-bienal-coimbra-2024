@@ -10,7 +10,16 @@ public class GlobalSettings : ScriptableObject
     [Tooltip("Disable Hand Model When Grabbing Object")]
     [SerializeField] private bool disableHandModelWhenGrabbing = true;
 
-    public bool EnableCalibrationOnTakingHeadsetOff => enableCalibrationOnTakingHeadsetOff;
 
-    public bool DisableHandModelWhenGrabbing => disableHandModelWhenGrabbing;
+    public bool EnableCalibrationOnTakingHeadsetOff
+    {
+        get => enableCalibrationOnTakingHeadsetOff;
+        set => enableCalibrationOnTakingHeadsetOff = value;
+    }
+
+    public bool DisableHandModelWhenGrabbing
+    {
+        get => disableHandModelWhenGrabbing;
+        set => disableHandModelWhenGrabbing = value;
+    }
 }

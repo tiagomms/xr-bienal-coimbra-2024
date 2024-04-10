@@ -44,6 +44,9 @@ public class SetupCalibration : MonoBehaviour
     {
         uiParentObject.SetActive(shouldUseDebugUiText);
         #if USE_SIMULATOR
+        _globalSettings.EnableCalibrationOnTakingHeadsetOff = false;
+        _globalSettings.DisableHandModelWhenGrabbing = false;
+        
             startLocation.position = new Vector3();
             uiParentObject.SetActive(false);
         #endif
