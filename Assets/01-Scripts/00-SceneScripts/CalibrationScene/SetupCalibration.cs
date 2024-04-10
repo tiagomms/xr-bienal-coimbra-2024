@@ -1,4 +1,4 @@
-#if UNITY_EDITOR_OSX 
+#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
 #define USE_SIMULATOR
 #elif UNITY_ANDROID || UNITY_EDITOR_WIN
 #define USE_QUEST
@@ -44,7 +44,6 @@ public class SetupCalibration : MonoBehaviour
     {
         uiParentObject.SetActive(shouldUseDebugUiText);
         #if USE_SIMULATOR
-            GlobalManager.Instance.isCalibrated = true;
             startLocation.position = new Vector3();
             uiParentObject.SetActive(false);
         #endif
