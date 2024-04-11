@@ -158,11 +158,15 @@ MonoBehaviour:
   _ovrManager: {fileID: 7589723990061991959}
   _xrOrigin: {fileID: 5662492593198493110}
   _characterControllerDriver: {fileID: 626553869295775365}
+  _leftHand: {fileID: 1144853554167133514}
+  _rightHand: {fileID: 5705326215635639687}
+  _handVisualizer: {fileID: 6561288062940411766}
+  _handsSmoothingPostProcessor: {fileID: 7510489720844140326}
   _xrControllerLeft: {fileID: 6831643524525102346}
   _xrControllerLeftStabilizer: {fileID: 6285944679998392045}
   _xrControllerRight: {fileID: 6831643526160930283}
   _xrControllerRightStabilizer: {fileID: 2752682838542383197}
-  _xrSimulatorMoveControllersLocalPosition: {x: 0, y: 0, z: 0.15}
+  _platformSettings: {fileID: 11400000, guid: adeb7bf04c9a8cd4392d51361cf06fc3, type: 2}
 --- !u!1 &5883973268072442521
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +682,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1144853554167133514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4596136170892101230, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2591831765876359469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1428659235281105417, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
@@ -796,6 +805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5705326215635639687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153272346877832867, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5954343739862186209 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7100350694656232389, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
@@ -809,6 +823,11 @@ Transform:
 --- !u!1 &6430179974485432167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7572523348751049795, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6561288062940411766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7720849789280207954, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
   m_PrefabInstance: {fileID: 3471034252284441380}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6831643524525102346 stripped
@@ -890,6 +909,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6073528328743216874, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
   m_PrefabInstance: {fileID: 3471034252284441380}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7510489720844140326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6345864176589835266, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8841260368313963585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,6 +922,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2571943992273054731}
     m_Modifications:
+    - target: {fileID: 6598815579406187026, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_LeftHandIsTracked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187026, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_RightHandIsTracked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187026, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_HandTrackingCapability
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

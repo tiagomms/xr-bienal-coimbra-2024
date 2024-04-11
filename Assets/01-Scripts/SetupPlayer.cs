@@ -35,7 +35,12 @@ public class SetupPlayer : MonoBehaviour
     [SerializeField]
     private CharacterControllerDriver _characterControllerDriver;
 
-
+    [Space(height: 20)] 
+    [SerializeField] private GameObject _leftHand;
+    [SerializeField] private GameObject _rightHand;
+    [SerializeField] private GameObject _handVisualizer;
+    [SerializeField] private GameObject _handsSmoothingPostProcessor;
+    
     [Space(height: 10)]
     [SerializeField]
     private Transform _xrControllerLeft;    
@@ -45,11 +50,8 @@ public class SetupPlayer : MonoBehaviour
     private Transform _xrControllerRight; 
     [SerializeField]
     private Transform _xrControllerRightStabilizer;
-    [SerializeField]
-    private Vector3 _xrSimulatorMoveControllersLocalPosition = new Vector3(0, 0, 0.1f);
 
-    
-    
+
     /// <summary>
     /// VERY IMPORTANT
     /// (1) if xrSimulator is active even before awake - it is always triggered - so start it inactive
@@ -62,44 +64,34 @@ public class SetupPlayer : MonoBehaviour
     private void Awake()
     {
         _xrPlayer.SetActive(true);
-        
-        
 
-
-        #if USE_SIMULATOR
-        // (1) make sure xrSimulator is on
-        _xrSimulator.SetActive(true);
-        
-        if (_ovrManager != null)
+        if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator)
         {
-            _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
+            // (1) make sure xrSimulator is on
+            _xrSimulator.SetActive(true);
+
+            if (_ovrManager != null)
+            {
+                _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
+            }
+            
+                    
+            // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
+            //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
+            // SOLVED: increased by accident the camera minimum clipping pane. reverted back and all is good
         }
-        
-        
-        // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
-        //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
-        // SOLVED: increased by accident the camera minimum clipping pane. reverted back and all is good
-   
-        #elif USE_QUEST 
-
-
-        // (1) make sure xrSimulator is off 
-        //(for some reason this does not work - had to put xrSimulator disabled manually)
-        _xrSimulator.SetActive(false);
-        _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.FloorLevel;
-        
-        
-        #endif
+        else
+        {
+            // (1) make sure xrSimulator is off 
+            //(for some reason this does not work - had to put xrSimulator disabled manually)
+            _xrSimulator.SetActive(false);
+            _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.FloorLevel;
+        }
     }
 
     private void Start()
     {
-        #if USE_SIMULATOR
-        _characterControllerDriver.enabled = true;
-        #elif USE_QUEST
-        _characterControllerDriver.enabled = false;
-        #endif
-
+        _characterControllerDriver.enabled = GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator;
     }
 }
 

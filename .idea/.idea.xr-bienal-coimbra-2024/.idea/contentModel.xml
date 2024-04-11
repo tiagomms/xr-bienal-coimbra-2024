@@ -39,10 +39,13 @@
             </e>
             <e p="GenericSingleton.cs" t="Include" />
             <e p="GlobalManager.cs" t="Include" />
-            <e p="GlobalSettings.cs" t="Include" />
             <e p="LoadScene.cs" t="Include" />
             <e p="OnTimedInterval.cs" t="Include" />
             <e p="OnTriggerPlayerInvoke.cs" t="Include" />
+            <e p="ScriptableObjects" t="Include">
+              <e p="ConnectionTypeSettings.cs" t="Include" />
+              <e p="GlobalSettings.cs" t="Include" />
+            </e>
             <e p="SetupXrGrabbableObjects.cs" t="Include" />
             <e p="TagManager.cs" t="Include" />
             <e p="XRHeadsetDetection" t="Include">

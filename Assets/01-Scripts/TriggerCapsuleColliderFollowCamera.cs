@@ -13,24 +13,24 @@ public class TriggerCapsuleColliderFollowCamera : MonoBehaviour
     public Vector3 offset;
     [SerializeField] private Transform _followTarget;
 
-    private Vector3 initialTargetHeight;
-    private CapsuleCollider collider;
+    private Vector3 _initialTargetHeight;
+    private CapsuleCollider _collider;
 
     void Awake()
     {
-        collider = GetComponent<CapsuleCollider>();
-        collider.isTrigger = true;
+        _collider = GetComponent<CapsuleCollider>();
+        _collider.isTrigger = true;
     }
 
     void Start() {
-        initialTargetHeight = new Vector3(0, _followTarget.position.y, 0);
-        collider.height = _followTarget.position.y;
+        _initialTargetHeight = new Vector3(0, _followTarget.position.y, 0);
+        _collider.height = _followTarget.position.y;
         transform.rotation = _followTarget.rotation;
     }
     // Update is called once per frame
     void Update()
     {
-        transform.position = _followTarget.position + offset - (initialTargetHeight / 2);
+        transform.position = _followTarget.position + offset - (_initialTargetHeight / 2);
         transform.rotation = Quaternion.Euler(0f, _followTarget.rotation.eulerAngles.y, 0f);
     }
 }

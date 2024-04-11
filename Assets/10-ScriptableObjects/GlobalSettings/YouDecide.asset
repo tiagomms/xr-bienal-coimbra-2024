@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cdb00caedb96dd4f8298f0697fec508, type: 3}
-  m_Name: ForTesting
+  m_Name: YouDecide
   m_EditorClassIdentifier: 
-  enableCalibrationOnTakingHeadsetOff: 0
+  enableCalibrationOnTakingHeadsetOff: 1
   disableHandModelWhenGrabbing: 1
+  hideOnBuildHelpfulObjects: 0

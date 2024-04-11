@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SetupScene : MonoBehaviour
 {
-    [SerializeField]
-    private bool _hideOnBuildHelpfulObjects = true;
-
     [SerializeField] private GameAreaBoundaryProperties initialCageOrigin;
     
     private GameObject environmentParent;
@@ -17,13 +14,13 @@ public class SetupScene : MonoBehaviour
 
     private void OnEnable()
     {
-        GlobalManager.OnCalibrationCompleted += RotateEnvironmentIfNeeded;
+        SetupCalibration.OnCalibrationCompleted += RotateEnvironmentIfNeeded;
         SceneManager.sceneLoaded += SceneSetupOnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        GlobalManager.OnCalibrationCompleted -= RotateEnvironmentIfNeeded;
+        SetupCalibration.OnCalibrationCompleted -= RotateEnvironmentIfNeeded;
         SceneManager.sceneLoaded -= SceneSetupOnSceneLoaded;
 
     }
@@ -46,7 +43,7 @@ public class SetupScene : MonoBehaviour
     private void HideHelpfulObjects()
     {
         // (1) force hide of all game objects with tag 'HideOnBuild"
-        if (_hideOnBuildHelpfulObjects)
+        if (GlobalManager.Instance.Settings.hideOnBuildHelpfulObjects)
         {
             GameObject[] hideObjs = GameObject.FindGameObjectsWithTag("HideOnBuild");
             foreach (GameObject item in hideObjs)

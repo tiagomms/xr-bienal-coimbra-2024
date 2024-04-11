@@ -1,9 +1,3 @@
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
-#define USE_SIMULATOR
-#elif UNITY_ANDROID || UNITY_EDITOR_WIN
-#define USE_QUEST
-#endif
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,10 +6,6 @@ using UnityEngine;
 
 public class SetupCalibration : MonoBehaviour
 {
-    [Tooltip("Global Settings for testing/playing game - Mandatory")] 
-    [SerializeField]
-    private GlobalSettings _globalSettings;
-
     [SerializeField]
     private Transform startLocation;
 
@@ -38,45 +28,38 @@ public class SetupCalibration : MonoBehaviour
     
     private int _calibrationCounter;
 
-    public static Action<GlobalSettings> OnCalibrationStart;
+    public static Action OnCalibrationStart;
+    public static Action OnCalibrationCompleted;
     // Start is called before the first frame update
     void Start()
     {
         uiParentObject.SetActive(shouldUseDebugUiText);
-        #if USE_SIMULATOR
-        _globalSettings.EnableCalibrationOnTakingHeadsetOff = false;
-        _globalSettings.DisableHandModelWhenGrabbing = false;
-        
-            startLocation.position = new Vector3();
+        if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator)
+        {
+            startLocation.localPosition = new Vector3();
             uiParentObject.SetActive(false);
-        #endif
-
+        }
+        
         /*
         if (!GlobalManager.Instance.IsCalibrated || GlobalManager.Instance.LastSceneCageOrigin == null)
         {
-            startLocation.position = new Vector3();
+            startLocation.localPosition = new Vector3();
         }
         else
         {
-            startLocation.position = GlobalManager.Instance.LastSceneCageOrigin.position;
+            startLocation.localPosition = GlobalManager.Instance.LastSceneCageOrigin.localPosition;
             startLocation.rotation = GlobalManager.Instance.LastSceneCageOrigin.rotation;
         }
         */
 
-        if (!GlobalManager.Instance.IsCalibrated)
+        if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Quest)
         {
-            startLocation.position = new Vector3();
+            if (!GlobalManager.Instance.IsCalibrated)
+            {
+                startLocation.localPosition = new Vector3();
+                StartCoroutine(PerformCalibrationSetup());
+            }
         }
-
-        #if USE_QUEST
-        if (!GlobalManager.Instance.IsCalibrated)
-        {
-            startLocation.position = new Vector3();
-            StartCoroutine(PerformCalibrationSetup());
-        }
-        OnCalibrationStart.Invoke(_globalSettings);
-        #endif
-        
     }
     
     private IEnumerator PerformCalibrationSetup()
@@ -92,7 +75,7 @@ public class SetupCalibration : MonoBehaviour
 
         if (_calibrationCounter != maxCalibrationAttempts)
         {
-            GlobalManager.OnCalibrationCompleted.Invoke();
+            OnCalibrationCompleted.Invoke();
             startLocation.gameObject.SetActive(true);
         }
         else
