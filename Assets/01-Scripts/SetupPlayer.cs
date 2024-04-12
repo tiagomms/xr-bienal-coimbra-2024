@@ -51,6 +51,11 @@ public class SetupPlayer : MonoBehaviour
     [SerializeField]
     private Transform _xrControllerRightStabilizer;
 
+    public XROrigin XrOrigin
+    {
+        get => _xrOrigin;
+        set => _xrOrigin = value;
+    }
 
     /// <summary>
     /// VERY IMPORTANT

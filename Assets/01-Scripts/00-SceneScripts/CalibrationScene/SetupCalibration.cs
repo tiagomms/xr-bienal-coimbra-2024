@@ -7,6 +7,9 @@ using UnityEngine;
 public class SetupCalibration : MonoBehaviour
 {
     [SerializeField]
+    private SetupPlayer _setupPlayer;
+    
+    [SerializeField]
     private Transform startLocation;
 
     [SerializeField] 
@@ -30,6 +33,10 @@ public class SetupCalibration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Transform xrOriginTransform = _setupPlayer.XrOrigin.transform;
+        xrOriginTransform.position = Vector3.zero;
+        xrOriginTransform.rotation = Quaternion.identity;
+        
         if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator)
         {
             startLocation.localPosition = new Vector3();
