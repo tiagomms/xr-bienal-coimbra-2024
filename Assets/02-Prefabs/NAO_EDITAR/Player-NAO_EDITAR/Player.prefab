@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2571943992273054731}
   - component: {fileID: 1501756718307502901}
+  - component: {fileID: 7949268399512747064}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -166,7 +167,18 @@ MonoBehaviour:
   _xrControllerLeftStabilizer: {fileID: 6285944679998392045}
   _xrControllerRight: {fileID: 6831643526160930283}
   _xrControllerRightStabilizer: {fileID: 2752682838542383197}
-  _platformSettings: {fileID: 11400000, guid: adeb7bf04c9a8cd4392d51361cf06fc3, type: 2}
+--- !u!114 &7949268399512747064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277830459133564558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa620b57846c5ed46ae841764d19095e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5883973268072442521
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,9 +676,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8733093507751517971, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7589723990061991959}
-    - targetCorrespondingSourceObject: {fileID: 8733093507751517971, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6720406543796267815}
     - targetCorrespondingSourceObject: {fileID: 7990873191231833679, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5834979064892102249}
@@ -782,18 +791,6 @@ MonoBehaviour:
   SimultaneousHandsAndControllersEnabled: 0
   _readOnlyWideMotionModeHandPosesEnabled: 0
   wideMotionModeHandPosesEnabled: 0
---- !u!114 &6720406543796267815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5267444672014068791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa620b57846c5ed46ae841764d19095e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5662492593198493110 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9132913291935407762, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
