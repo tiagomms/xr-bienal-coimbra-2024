@@ -1240,6 +1240,10 @@ PrefabInstance:
       value: PortalOpensToNextScene-FromGrabbingObject
       objectReference: {fileID: 0}
     - target: {fileID: 6889986379155278446, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
+      propertyPath: portalSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a503a902ee1ce644b8b532ac441167ab, type: 3}
+    - target: {fileID: 6889986379155278446, guid: 2b019cddedf2d5941b15d110d9f61811, type: 3}
       propertyPath: nextSceneName
       value: 01-StartScene
       objectReference: {fileID: 0}
@@ -1366,6 +1370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1137872396}
     m_Modifications:
+    - target: {fileID: 4049675418857511382, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4688258266318552527, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_Name
       value: PlayerBoundary (1)
@@ -1906,6 +1914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1137872396}
     m_Modifications:
+    - target: {fileID: 4049675418857511382, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4688258266318552527, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_Name
       value: PlayerBoundary (2)
@@ -2374,6 +2386,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 1507d38991c91f945b1bf738bf4eb769, type: 3}
+    - target: {fileID: 4049675418857511382, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4688258266318552527, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_Name
       value: PlayerBoundary
