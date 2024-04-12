@@ -10,9 +10,6 @@ public class SetupCalibration : MonoBehaviour
     private Transform startLocation;
 
     [SerializeField] 
-    private GameObject uiParentObject;
-    
-    [SerializeField] 
     private bool shouldUseDebugUiText = false;
     
     [SerializeField] 
@@ -33,11 +30,9 @@ public class SetupCalibration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uiParentObject.SetActive(shouldUseDebugUiText);
         if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator)
         {
             startLocation.localPosition = new Vector3();
-            uiParentObject.SetActive(false);
         }
         
         /*
@@ -80,7 +75,6 @@ public class SetupCalibration : MonoBehaviour
         }
         else
         {
-            uiParentObject.SetActive(true);
             WriteToDebug("Calibration error occured\nPlease take headset off and put it on again\nIf that doesn't work press Meta's on/off button.");
         }
     }
@@ -99,7 +93,6 @@ public class SetupCalibration : MonoBehaviour
 
                 if (shouldUseDebugUiText)
                 {
-                    uiParentObject.SetActive(true);
                     string pointsStr = "PlayArea size:\n" + GlobalManager.Instance.BoundarySize; 
                     //string pointsStr = "(" + _calibrationCounter + ") PlayArea size:\n" + GlobalManager.Instance.BoundarySize + "\n\n" 
                       //                 + string.Join("\n", GlobalManager.Instance.BoundaryPoints.Select(p => p.ToString()));
