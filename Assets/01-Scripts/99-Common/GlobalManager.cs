@@ -75,6 +75,7 @@ public class GlobalManager : GenericSingleton<GlobalManager>
     private void OnHeadsetOff()
     {
         IsCalibrated = false;
+        OnCalibrationLost.Invoke();
     }
 
     private void OnHeadsetOn()

@@ -98,5 +98,21 @@ public class SetupPlayer : MonoBehaviour
     {
         _characterControllerDriver.enabled = GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator;
     }
+
+    private void OnEnable()
+    {
+        GlobalManager.OnCalibrationLost += ResetXrOrigin;
+    }
+
+    private void OnDisable()
+    {
+        GlobalManager.OnCalibrationLost -= ResetXrOrigin;
+    }
+
+    private void ResetXrOrigin()
+    {
+        _xrOrigin.transform.position = new Vector3();
+        _xrOrigin.transform.rotation = Quaternion.identity;
+    }
 }
 

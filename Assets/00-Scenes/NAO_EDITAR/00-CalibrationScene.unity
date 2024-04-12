@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab20c9661c4d4a04fa22bec570917b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setupPlayer: {fileID: 1454777577}
   startLocation: {fileID: 1749830831}
   shouldUseDebugUiText: 1
   writeToDebugUi: {fileID: 11400000, guid: 11e4df15a90ebbe458884980640bd1c4, type: 2}
@@ -545,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137872395}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -553,7 +552,7 @@ Transform:
   - {fileID: 1749830831}
   - {fileID: 1021332593}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1276631746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -611,17 +610,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96f042bfb348cc3438439e2778676e59, type: 3}
---- !u!114 &1454777577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1501756718307502901, guid: 80df985389943af4583d252457fb2944, type: 3}
-  m_PrefabInstance: {fileID: 5769903000077979730}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b7ea5266339495bb99440cc0e0d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1749830830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -827,7 +815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070934205271755850, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6070934205271755850, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -839,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070934205271755850, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6070934205271755850, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -851,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070934205271755850, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
