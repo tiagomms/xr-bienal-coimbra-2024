@@ -30,28 +30,10 @@ public class SetupCalibration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator)
-        {
-            startLocation.localPosition = new Vector3();
-        }
-        
-        /*
-        if (!GlobalManager.Instance.IsCalibrated || GlobalManager.Instance.LastSceneCageOrigin == null)
-        {
-            startLocation.localPosition = new Vector3();
-        }
-        else
-        {
-            startLocation.localPosition = GlobalManager.Instance.LastSceneCageOrigin.localPosition;
-            startLocation.rotation = GlobalManager.Instance.LastSceneCageOrigin.rotation;
-        }
-        */
-
         if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Quest)
         {
             if (!GlobalManager.Instance.IsCalibrated)
             {
-                startLocation.localPosition = new Vector3();
                 StartCoroutine(PerformCalibrationSetup());
             }
         }
