@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658904325700070051}
-  - component: {fileID: -1653022013273449393}
   - component: {fileID: 9202148275106921385}
+  - component: {fileID: -1653022013273449393}
   m_Layer: 0
   m_Name: BasicGrabReleaseAudio
   m_TagString: Untagged
@@ -33,6 +33,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9202148275106921385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674537905600659506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5531d3f9dd3ea554780fd9909ca79040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
+  _audioClips:
+  - {fileID: 8300000, guid: 554058ccc42156c4eb08a74776d90fac, type: 3}
+  - {fileID: 8300000, guid: 3c8f11f6d98f2af4dbc123fd01e7c9b4, type: 3}
+  - {fileID: 8300000, guid: 023af1205c896d44e8321a98aea7d4a4, type: 3}
+  - {fileID: 8300000, guid: 8a2e342ad57c15a4993d6abee4c6128e, type: 3}
+  - {fileID: 8300000, guid: 1a12f733483b0a64299342532d0d584d, type: 3}
+  _volume: 0.015
+  _volumeRandomization:
+    _useRandomRange: 0
+    _min: 0
+    _max: 0
+  _pitch: 1
+  _pitchRandomization:
+    _useRandomRange: 0
+    _min: 0
+    _max: 0
+  _spatialize: 1
+  _loop: 0
+  _chanceToPlay: 100
+  _playOnStart: 0
 --- !u!82 &-1653022013273449393
 AudioSource:
   m_ObjectHideFlags: 0
@@ -129,36 +162,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9202148275106921385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674537905600659506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5531d3f9dd3ea554780fd9909ca79040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioClips:
-  - {fileID: 8300000, guid: 554058ccc42156c4eb08a74776d90fac, type: 3}
-  - {fileID: 8300000, guid: 3c8f11f6d98f2af4dbc123fd01e7c9b4, type: 3}
-  - {fileID: 8300000, guid: 023af1205c896d44e8321a98aea7d4a4, type: 3}
-  - {fileID: 8300000, guid: 8a2e342ad57c15a4993d6abee4c6128e, type: 3}
-  - {fileID: 8300000, guid: 1a12f733483b0a64299342532d0d584d, type: 3}
-  _volume: 0.015
-  _volumeRandomization:
-    _useRandomRange: 0
-    _min: 0
-    _max: 0
-  _pitch: 1
-  _pitchRandomization:
-    _useRandomRange: 0
-    _min: 0
-    _max: 0
-  _spatialize: 1
-  _loop: 0
-  _chanceToPlay: 100
-  _playOnStart: 0

@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/00-Scenes/NAO_EDITAR/01-StartScene.unity
     guid: 5bf57cf6b05c445e6bff435a6ddfe19e
   - enabled: 1
-    path: Assets/00-Scenes/TEMPLATE/02-TemplateScene.unity
+    path: Assets/00-Scenes/NAO_EDITAR/02-TemplateScene.unity
     guid: 4755dae4d90e48943989dd3688de2958
+  - enabled: 1
+    path: Assets/00-Scenes/TEMPLATE/03-YourLevelTemplate.unity
+    guid: 616b0479d61e448a485cf7691c7b1c55
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

@@ -619,11 +619,11 @@ PrefabInstance:
     - target: {fileID: 4912320635999571168, guid: c440506b51068664dab1167b796f574b, type: 3}
       propertyPath: m_AudioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 947414535}
     - target: {fileID: 4912320635999571168, guid: c440506b51068664dab1167b796f574b, type: 3}
       propertyPath: m_VideoPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 947414536}
     - target: {fileID: 7653875916128041887, guid: c440506b51068664dab1167b796f574b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -708,6 +708,16 @@ PrefabInstance:
 --- !u!4 &947414534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7653875916128041887, guid: c440506b51068664dab1167b796f574b, type: 3}
+  m_PrefabInstance: {fileID: 947414533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &947414535 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9075383705299701638, guid: c440506b51068664dab1167b796f574b, type: 3}
+  m_PrefabInstance: {fileID: 947414533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &947414536 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 7967829583664937070, guid: c440506b51068664dab1167b796f574b, type: 3}
   m_PrefabInstance: {fileID: 947414533}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &965271535
@@ -964,7 +974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089979783979901352, guid: 009f37eb68ca67d498ecf2636706d6d7, type: 3}
       propertyPath: m_Text
-      value: This is UI Text Example. Right what you want here.
+      value: This is UI Text Example. Write what you want here.
       objectReference: {fileID: 0}
     - target: {fileID: 7653875916128041887, guid: 009f37eb68ca67d498ecf2636706d6d7, type: 3}
       propertyPath: m_LocalPosition.x
