@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Oculus.Interaction.PoseDetection;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum PortalType
 {
@@ -20,39 +21,44 @@ public class PortalSettings
     public PortalType PortalType { get; set; }
     public string NextSceneName { get; set; }
     
-    public Transform NextLocation { get; set; }
+    public GameAreaBoundaryProperties NextCageOrigin { get; set; }
 }
 
 public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 {
+    [Tooltip("Drag here Portal Mesh if you change it")] 
+    [SerializeField]
+    protected GameObject _portalMeshPrefab;
+    [Tooltip("Check to make sure portal is always open")]
+    [SerializeField] protected bool isAlwaysOpen = false;
+
+    
+    [Space(height: 20)]
+    [Tooltip("Set portal sound when opened, if you want")]
+    [SerializeField] protected AudioSource _audioSource;
     [SerializeField] protected AudioClip portalSound;
     [SerializeField] protected float audioVolume = 1f;
     [SerializeField] protected float audioMaxDistance = 3f;
 
-    [Space(height: 10)] 
+    [Space(height: 20)] 
     [Tooltip("Portal Settings when Fading")]
     [SerializeField] protected PortalSettings portalSettings;
     
     public static Action<PortalSettings> OnPortalEnter;
     public static Action<PortalSettings> OnPortalThrough;
 
-    protected bool AlwaysOpenFlag = false;
     private bool _isOpen = false;
-    private AudioSource _audioSource;
-    private GameObject _portalPrefab;
     
     protected virtual void Awake()
     {
-        _audioSource = GetComponentInChildren<AudioSource>();
-        _portalPrefab = transform.GetChild(0).gameObject;
         // to make sure portal is not seen at start unless it is always open
-        _portalPrefab.SetActive(AlwaysOpenFlag);
-        _isOpen = AlwaysOpenFlag;
+        _portalMeshPrefab.SetActive(isAlwaysOpen);
+        _isOpen = isAlwaysOpen;
     }
 
     protected virtual void Start()
     {
-        if (AlwaysOpenFlag)
+        if (isAlwaysOpen)
         {
             OpenPortal();
         }
@@ -60,10 +66,10 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 
     protected virtual void OpenPortal()
     {
-        if (_isOpen && !AlwaysOpenFlag) return;
+        if (_isOpen && !isAlwaysOpen) return;
         
         _isOpen = true;
-        _portalPrefab.SetActive(true);
+        _portalMeshPrefab.SetActive(true);
         
         if (_audioSource != null && portalSound != null)
         {
@@ -80,10 +86,10 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     /// </summary>
     public virtual void ClosePortal()
     {
-        if (!(_isOpen && !AlwaysOpenFlag)) return;
+        if (!(_isOpen && !isAlwaysOpen)) return;
         
         _isOpen = false;
-        _portalPrefab.SetActive(false);
+        _portalMeshPrefab.SetActive(false);
         portalSettings.NextSceneName = null;
         
             
@@ -99,7 +105,8 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     {
         if (!_isOpen)
             return;
-        
+        SetPortalNextStepSettings();
+
     }
     
     protected virtual void LeavePortal(Transform player)
@@ -108,4 +115,6 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
             return;
         
     }
+
+    protected abstract void SetPortalNextStepSettings();
 }

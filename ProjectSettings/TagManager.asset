@@ -10,6 +10,8 @@ TagManager:
   - Right Hand
   - Left Hand
   - PortalObject
+  - Environment
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX
