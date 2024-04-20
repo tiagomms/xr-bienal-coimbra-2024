@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3694010461159313192}
   - component: {fileID: 7251995682118140112}
+  - component: {fileID: 6323032159108983187}
   m_Layer: 0
   m_Name: GlobalManager
   m_TagString: Untagged
@@ -46,3 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _globalSettings: {fileID: 11400000, guid: dd5062e1a9dfe53449e697e3dd19698e, type: 2}
   _connectionType: {fileID: 11400000, guid: adeb7bf04c9a8cd4392d51361cf06fc3, type: 2}
+--- !u!114 &6323032159108983187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080588746269546333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0

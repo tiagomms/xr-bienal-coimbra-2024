@@ -247,6 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7653875916128041887}
   - component: {fileID: 4912320635999571168}
+  - component: {fileID: 268811573221274225}
   m_Layer: 0
   m_Name: UI-Video
   m_TagString: Untagged
@@ -284,3 +285,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_VideoPlayer: {fileID: 7967829583664937070}
   m_AudioSource: {fileID: 9075383705299701638}
+--- !u!114 &268811573221274225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829406425718364091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 1

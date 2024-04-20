@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529048073309453645}
+  - component: {fileID: 5929721465136128807}
   m_Layer: 0
   m_Name: SuperClimb Sample
   m_TagString: Untagged
@@ -34,6 +35,20 @@ Transform:
   - {fileID: 2517050250106690121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &5929721465136128807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333778269749709270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 1
 --- !u!1001 &644234594000555259
 PrefabInstance:
   m_ObjectHideFlags: 0

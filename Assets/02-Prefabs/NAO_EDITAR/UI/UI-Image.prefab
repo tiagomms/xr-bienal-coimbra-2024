@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7653875916128041887}
   - component: {fileID: 2113857673554844159}
+  - component: {fileID: 8453894017232100879}
   m_Layer: 0
   m_Name: UI-Image
   m_TagString: Untagged
@@ -121,6 +122,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Image: {fileID: 4039030942668169321}
+--- !u!114 &8453894017232100879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829406425718364091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 1
 --- !u!1 &8190877380618993704
 GameObject:
   m_ObjectHideFlags: 0

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 76813732}
   - component: {fileID: 76813731}
   - component: {fileID: 76813730}
+  - component: {fileID: 76813733}
   m_Layer: 0
   m_Name: TransparentFloor (2)
   m_TagString: Untagged
@@ -228,6 +229,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76813728}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &76813733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76813728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &136578202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -440,6 +455,7 @@ GameObject:
   - component: {fileID: 414181353}
   - component: {fileID: 414181352}
   - component: {fileID: 414181351}
+  - component: {fileID: 414181354}
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
@@ -533,6 +549,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414181349}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &414181354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414181349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &427477081
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +575,7 @@ GameObject:
   - component: {fileID: 427477085}
   - component: {fileID: 427477084}
   - component: {fileID: 427477083}
+  - component: {fileID: 427477086}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -639,6 +670,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427477081}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &427477086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427477081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &541800390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8763209059466381227, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
@@ -964,6 +1009,7 @@ GameObject:
   - component: {fileID: 627039799}
   - component: {fileID: 627039798}
   - component: {fileID: 627039797}
+  - component: {fileID: 627039800}
   m_Layer: 0
   m_Name: TransparentFloor (2)
   m_TagString: Untagged
@@ -1057,6 +1103,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627039795}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &627039800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627039795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &630484421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1365,7 @@ GameObject:
   - component: {fileID: 799723055}
   - component: {fileID: 799723054}
   - component: {fileID: 799723053}
+  - component: {fileID: 799723056}
   m_Layer: 0
   m_Name: TransparentFloor (4)
   m_TagString: Untagged
@@ -1398,6 +1459,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799723051}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &799723056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799723051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &894126321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1995,7 @@ GameObject:
   - component: {fileID: 1128414185}
   - component: {fileID: 1128414184}
   - component: {fileID: 1128414183}
+  - component: {fileID: 1128414186}
   m_Layer: 0
   m_Name: Floor (2)
   m_TagString: Untagged
@@ -2013,6 +2089,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128414181}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1128414186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128414181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &1137872395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2254,7 @@ GameObject:
   - component: {fileID: 1193421038}
   - component: {fileID: 1193421040}
   - component: {fileID: 1193421039}
+  - component: {fileID: 1193421041}
   m_Layer: 0
   m_Name: SceneSetup
   m_TagString: Untagged
@@ -2215,6 +2306,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialCageOrigin: {fileID: 2144087647548117731}
+--- !u!114 &1193421041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193421037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &1319393435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2305,6 +2410,7 @@ GameObject:
   - component: {fileID: 1416275033}
   - component: {fileID: 1416275032}
   - component: {fileID: 1416275031}
+  - component: {fileID: 1416275034}
   m_Layer: 0
   m_Name: TransparentFloor (3)
   m_TagString: Untagged
@@ -2398,6 +2504,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416275029}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1416275034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416275029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &1418791879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2651,6 +2771,7 @@ GameObject:
   - component: {fileID: 1585769835}
   - component: {fileID: 1585769834}
   - component: {fileID: 1585769833}
+  - component: {fileID: 1585769836}
   m_Layer: 0
   m_Name: TransparentFloor (4)
   m_TagString: Untagged
@@ -2744,6 +2865,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585769831}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1585769836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585769831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &1659890723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,6 +3199,7 @@ GameObject:
   - component: {fileID: 1827653353}
   - component: {fileID: 1827653352}
   - component: {fileID: 1827653351}
+  - component: {fileID: 1827653354}
   m_Layer: 0
   m_Name: TransparentFloor (3)
   m_TagString: Untagged
@@ -3157,6 +3293,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827653349}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1827653354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827653349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &1982192424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3463,6 +3613,7 @@ GameObject:
   - component: {fileID: 2132825723}
   - component: {fileID: 2132825722}
   - component: {fileID: 2132825721}
+  - component: {fileID: 2132825724}
   m_Layer: 0
   m_Name: TransparentFloor (5)
   m_TagString: Untagged
@@ -3556,6 +3707,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132825719}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2132825724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132825719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &2133151635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,6 +3733,7 @@ GameObject:
   - component: {fileID: 2133151639}
   - component: {fileID: 2133151638}
   - component: {fileID: 2133151637}
+  - component: {fileID: 2133151640}
   m_Layer: 0
   m_Name: TransparentFloor (1)
   m_TagString: Untagged
@@ -3661,6 +3827,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133151635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2133151640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133151635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &2133165412
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2180772}
   - component: {fileID: 2180771}
+  - component: {fileID: 2180773}
   m_Layer: 0
   m_Name: CalibrationSetup
   m_TagString: Untagged
@@ -173,6 +174,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2180773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &115123239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,6 +261,7 @@ GameObject:
   - component: {fileID: 427477085}
   - component: {fileID: 427477084}
   - component: {fileID: 427477083}
+  - component: {fileID: 427477086}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -340,6 +356,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427477081}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &427477086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427477081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1 &760900894
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +755,7 @@ GameObject:
   - component: {fileID: 2141438292}
   - component: {fileID: 2141438294}
   - component: {fileID: 2141438293}
+  - component: {fileID: 2141438295}
   m_Layer: 0
   m_Name: SceneSetup
   m_TagString: Untagged
@@ -776,6 +807,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialCageOrigin: {fileID: 2144087647548117727}
+--- !u!114 &2141438295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141438290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 0
 --- !u!1001 &2144087647548117726
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class SetupScene : MonoBehaviour
 
     public static Action<GameAreaBoundaryProperties> OnSceneSetUp;
 
+    public static bool IsSceneSetup = false;
+
     private void OnEnable()
     {
         SetupCalibration.OnCalibrationCompleted += RotateEnvironmentIfNeeded;
@@ -22,7 +24,7 @@ public class SetupScene : MonoBehaviour
     {
         SetupCalibration.OnCalibrationCompleted -= RotateEnvironmentIfNeeded;
         SceneManager.sceneLoaded -= SceneSetupOnSceneLoaded;
-
+        IsSceneSetup = false;
     }
 
     private void SceneSetupOnSceneLoaded(Scene scene1, LoadSceneMode mode)
@@ -33,6 +35,7 @@ public class SetupScene : MonoBehaviour
         if (initialCageOrigin != null)
         {
             OnSceneSetUp?.Invoke(initialCageOrigin);
+            IsSceneSetup = true;
         }
         else
         {
@@ -63,5 +66,9 @@ public class SetupScene : MonoBehaviour
         {
             environmentParent.transform.eulerAngles = new Vector3(0f, 90f, 0f);
         }
+    }
+
+    private void OnDestroy() {
+        IsSceneSetup = false;
     }
 }

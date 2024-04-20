@@ -328,13 +328,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5082813262405253967, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5110888541355179034}
   m_SourcePrefab: {fileID: 100100000, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
 --- !u!1 &1686530400365238066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5082813262405253967, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
   m_PrefabInstance: {fileID: 5903662543278566525}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5110888541355179034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686530400365238066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90081308f5eb14e008e0df922844b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStaticAfterSceneSetup: 1
+  forceChildrenToBeStatic: 1
 --- !u!4 &1686530400365238067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5082813262405253966, guid: 3b3433421bedd1543a0a93d8cdd4362a, type: 3}
