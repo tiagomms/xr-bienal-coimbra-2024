@@ -36,7 +36,7 @@ public class SetupScene : MonoBehaviour
         }
         else
         {
-            DebugManager.Instance.Warning("Jaula inicial não foi definida em SetUpScene. Pode levar a erros!");
+            DebugManager.Instance.Warning("PlayerBoundary não foi definido em SetUpScene. Pode levar a erros!");
         }
     }
 
