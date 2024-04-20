@@ -15001,8 +15001,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.84, y: 2, z: 0.38749287}
-  m_Center: {x: 0, y: 0, z: -0.15}
+  m_Size: {x: 0.83999985, y: 2, z: 0.74891424}
+  m_Center: {x: 0, y: 0, z: 0.030710697}
 --- !u!114 &3742133486628153329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15034,8 +15034,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   onMatchSendString: {fileID: 0}
-  invokeOnMatchDelay: 1
-  dotForwardThreshold: 0.6
+  invokeOnMatchDelay: 0.8
+  dotForwardThreshold: 0.5
   doMatchForever: 0
 --- !u!4 &4163950888098013392 stripped
 Transform:
