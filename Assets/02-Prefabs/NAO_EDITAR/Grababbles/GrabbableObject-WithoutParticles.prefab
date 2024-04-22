@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6475945984992034478}
   - component: {fileID: 9015728652417490682}
   - component: {fileID: 480803206246800834}
+  - component: {fileID: 3050627682135334324}
   m_Layer: 0
   m_Name: GrabbableObject-WithoutParticles
   m_TagString: Untagged
@@ -301,6 +302,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e86b54723512e84fb5d2246ce2a6078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3050627682135334324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7242668566914749009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PermittedDisplacementAxes: -1
+  m_ConstrainedAxisDisplacementMode: 1
+  m_TwoHandedRotationMode: 1
+  m_AllowOneHandedScaling: 1
+  m_AllowTwoHandedScaling: 0
+  m_OneHandedScaleSpeed: 0.5
+  m_ThresholdMoveRatioForScale: 0.05
+  m_ClampScaling: 1
+  m_MinimumScaleRatio: 0.25
+  m_MaximumScaleRatio: 2
+  m_ScaleMultiplier: 0.25
 --- !u!1001 &1210963168284194446
 PrefabInstance:
   m_ObjectHideFlags: 0
