@@ -166,7 +166,6 @@ MonoBehaviour:
   _xrControllerLeftStabilizer: {fileID: 6285944679998392045}
   _xrControllerRight: {fileID: 6831643526160930283}
   _xrControllerRightStabilizer: {fileID: 2752682838542383197}
-  _platformSettings: {fileID: 11400000, guid: adeb7bf04c9a8cd4392d51361cf06fc3, type: 2}
 --- !u!1 &5883973268072442521
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +670,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5834979064892102249}
   m_SourcePrefab: {fileID: 100100000, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+--- !u!143 &626553869295775360 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 4078678170581458340, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 3471034252284441380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &626553869295775365 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4078678170581458337, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
@@ -794,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa620b57846c5ed46ae841764d19095e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterController: {fileID: 626553869295775360}
 --- !u!114 &5662492593198493110 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9132913291935407762, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
