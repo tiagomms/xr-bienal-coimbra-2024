@@ -6,37 +6,37 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00-Scenes/00-CalibrationScene.unity
+    path: Assets/00-Scenes/Without-Narrator/00-CalibrationScene.unity
     guid: f7b32e77c8d0fe348baec24411c70e13
   - enabled: 1
-    path: Assets/00-Scenes/01-StartScene.unity
+    path: Assets/00-Scenes/Without-Narrator/01-StartScene.unity
     guid: 5bf57cf6b05c445e6bff435a6ddfe19e
   - enabled: 1
-    path: Assets/00-Scenes/02-QuartoSonho.unity
+    path: Assets/00-Scenes/Without-Narrator/02-QuartoSonho.unity
     guid: 76a09fe8a2d794334947998fa0d5f3db
   - enabled: 1
-    path: Assets/00-Scenes/03-DeltaProjectScene.unity
+    path: Assets/00-Scenes/Without-Narrator/03-DeltaProjectScene.unity
     guid: 55e36c97ca0e04ef583a1907727934ab
   - enabled: 1
-    path: Assets/00-Scenes/04-RuaDoArsenal.unity
+    path: Assets/00-Scenes/Without-Narrator/04-RuaDoArsenal.unity
     guid: 04f2e3d10a86f4252b78f9225c35de36
   - enabled: 1
-    path: Assets/00-Scenes/05-Prisao.unity
+    path: Assets/00-Scenes/Without-Narrator/05-Prisao.unity
     guid: 329d7fb4ca9fc4a66a4074dbbdef76b6
   - enabled: 1
-    path: Assets/00-Scenes/06-ReuniaoPre25Abril.unity
+    path: Assets/00-Scenes/Without-Narrator/06-ReuniaoPre25Abril.unity
     guid: 64c890d5f7dd046cbbc5b4add7615ed0
   - enabled: 1
-    path: Assets/00-Scenes/07-Quartel.unity
+    path: Assets/00-Scenes/Without-Narrator/07-Quartel.unity
     guid: e823771a89cf344bdb7ae15d434dd66f
   - enabled: 1
-    path: Assets/00-Scenes/08-Cravo.unity
+    path: Assets/00-Scenes/Without-Narrator/08-Cravo.unity
     guid: e0bf0da7c94d64610a3b47256f77a41f
   - enabled: 1
-    path: Assets/00-Scenes/09-TerreiroDoPaco.unity
+    path: Assets/00-Scenes/Without-Narrator/09-TerreiroDoPaco.unity
     guid: b9d549f073abb4fa3b22cf45ccf005c2
   - enabled: 1
-    path: Assets/00-Scenes/10-QuartoSonho Reprise.unity
+    path: Assets/00-Scenes/Without-Narrator/10-QuartoSonho Reprise.unity
     guid: 0061d3b4447434f40a3609e9e14d4a99
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
