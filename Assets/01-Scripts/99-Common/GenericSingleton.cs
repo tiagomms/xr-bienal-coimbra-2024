@@ -8,12 +8,14 @@ public class GenericSingleton<T> : MonoBehaviour where T : Component
     // create a private reference to T instance
     private static T _instance;
 
+    private static bool _canCreate = true;
+
     public static T Instance
     {
         get
         {
             // if instance is null
-            if (_instance == null)
+            if (_instance == null && _canCreate)
             {
                 // find the generic instance
                 _instance = FindObjectOfType<T>();
@@ -42,6 +44,15 @@ public class GenericSingleton<T> : MonoBehaviour where T : Component
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public virtual void ForceDestroy()
+    {
+        if (_instance != null)
+        {
+            _instance = null;
+            Destroy(this.gameObject);
         }
     }
 }

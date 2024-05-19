@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 2571597486139871840}
   m_Layer: 0
   m_Name: cages
-  m_TagString: HideOnBuild
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

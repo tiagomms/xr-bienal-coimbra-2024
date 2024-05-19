@@ -30,7 +30,7 @@ public class OnTimedInterval : MonoBehaviour
         yield return new WaitForSeconds(interval);
 
         PlayEvent();
-        StartCoroutine(IntervalRoutine());
+        //StartCoroutine(IntervalRoutine());
     }
 
     private void PlayEvent()
