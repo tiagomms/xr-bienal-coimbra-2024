@@ -640,6 +640,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 3c7aae16c757ac24c80a74429095173c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1863679582}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 3c7aae16c757ac24c80a74429095173c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1863679583}
   m_SourcePrefab: {fileID: 100100000, guid: 3c7aae16c757ac24c80a74429095173c, type: 3}
 --- !u!1 &214038116
 GameObject:
@@ -5534,6 +5537,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setStaticAfterSceneSetup: 1
   forceChildrenToBeStatic: 1
+--- !u!65 &1863679583
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390998395}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.0028949, y: 0.06, z: 2.9999998}
+  m_Center: {x: -1.4985526, y: -0.03, z: -1.5}
 --- !u!4 &1870531676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: f0831e15639c5450b8ccc92bca04dda7, type: 3}
@@ -6463,6 +6487,10 @@ PrefabInstance:
     - target: {fileID: 299624964772595364, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 783024244619584719, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 873849679921904851, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_AnchoredPosition.x
