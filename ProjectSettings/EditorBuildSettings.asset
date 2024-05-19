@@ -6,38 +6,38 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/00-CalibrationScene.unity
-    guid: f7b32e77c8d0fe348baec24411c70e13
+    path: Assets/00-Scenes/With-Narrator/00-CalibrationScene.unity
+    guid: 03bd5a85ec75a4ba3820a97760486c72
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/01-StartScene.unity
-    guid: 5bf57cf6b05c445e6bff435a6ddfe19e
+    path: Assets/00-Scenes/With-Narrator/01-StartScene.unity
+    guid: 85df905cb213c49cc8c22932e00a4657
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/02-QuartoSonho.unity
-    guid: 76a09fe8a2d794334947998fa0d5f3db
+    path: Assets/00-Scenes/With-Narrator/02-QuartoSonho.unity
+    guid: 28f218777745240f4b3fdc74c4db7c72
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/03-DeltaProjectScene.unity
-    guid: 55e36c97ca0e04ef583a1907727934ab
+    path: Assets/00-Scenes/With-Narrator/03-DeltaProjectScene.unity
+    guid: dd7131a2cce5449f6b96beb3e499e38d
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/04-RuaDoArsenal.unity
-    guid: 04f2e3d10a86f4252b78f9225c35de36
+    path: Assets/00-Scenes/With-Narrator/04-RuaDoArsenal.unity
+    guid: 2386fe075c0e742de9078718ec687762
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/05-Prisao.unity
-    guid: 329d7fb4ca9fc4a66a4074dbbdef76b6
+    path: Assets/00-Scenes/With-Narrator/05-Prisao.unity
+    guid: 1d58eb03e3a1c45ff9cb2eb5f2fbf723
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/06-ReuniaoPre25Abril.unity
-    guid: 64c890d5f7dd046cbbc5b4add7615ed0
+    path: Assets/00-Scenes/With-Narrator/06-ReuniaoPre25Abril.unity
+    guid: b7b22986b70ca41948d787976d8b10b6
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/07-Quartel.unity
-    guid: e823771a89cf344bdb7ae15d434dd66f
+    path: Assets/00-Scenes/With-Narrator/07-Quartel.unity
+    guid: d73a9b94564f84bf2bdf8312e8c11091
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/08-Cravo.unity
-    guid: e0bf0da7c94d64610a3b47256f77a41f
+    path: Assets/00-Scenes/With-Narrator/08-Cravo.unity
+    guid: 0bfb5c5965e0f48c1abfa313bcfb827e
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/09-TerreiroDoPaco.unity
-    guid: b9d549f073abb4fa3b22cf45ccf005c2
+    path: Assets/00-Scenes/With-Narrator/09-TerreiroDoPaco.unity
+    guid: 9423ea9ce756646048a3ec5024849b85
   - enabled: 1
-    path: Assets/00-Scenes/Without-Narrator/10-QuartoSonho Reprise.unity
-    guid: 0061d3b4447434f40a3609e9e14d4a99
+    path: Assets/00-Scenes/With-Narrator/10-QuartoSonho Reprise.unity
+    guid: 86679f5a575b84ee7a2d5d14d4216c03
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

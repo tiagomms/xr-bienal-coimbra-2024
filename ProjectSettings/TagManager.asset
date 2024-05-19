@@ -12,6 +12,7 @@ TagManager:
   - PortalObject
   - Environment
   - PlayerCollider
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
