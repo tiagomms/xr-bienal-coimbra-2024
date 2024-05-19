@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableCalibrationOnTakingHeadsetOff: 1
   disableHandModelWhenGrabbing: 1
-  hideOnBuildHelpfulObjects: 0
+  hideOnBuildHelpfulObjects: 1

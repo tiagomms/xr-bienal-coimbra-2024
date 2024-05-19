@@ -966,9 +966,17 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5158507454692609464, guid: d831aacbaeb11b948b649992429706e0, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158507454692609464, guid: d831aacbaeb11b948b649992429706e0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af10cb9d28ca146a1923cf67778df86e, type: 2}
+    - target: {fileID: 6280848049367087037, guid: d831aacbaeb11b948b649992429706e0, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6753540938079647793, guid: d831aacbaeb11b948b649992429706e0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1252,9 +1260,17 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5158507454692609464, guid: d831aacbaeb11b948b649992429706e0, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158507454692609464, guid: d831aacbaeb11b948b649992429706e0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af10cb9d28ca146a1923cf67778df86e, type: 2}
+    - target: {fileID: 6280848049367087037, guid: d831aacbaeb11b948b649992429706e0, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6753540938079647793, guid: d831aacbaeb11b948b649992429706e0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5

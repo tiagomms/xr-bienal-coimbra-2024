@@ -36,4 +36,9 @@ public class LevelManager : MonoBehaviour
         GlobalManager.Instance.AddSceneVisited(arg0.name);
     }
 
+    public void ResetGame()
+    {
+        GlobalManager.Instance.ResetGame();
+    }
+
 }
