@@ -23677,6 +23677,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 783024244619584719, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1228932535594004147, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_AudioSource
       value: 
@@ -23771,6 +23775,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070934205271755850, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232133998424942879, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8243285039282255336, guid: fe963c5cdbd0741b2b3ec76706f0b75f, type: 3}
