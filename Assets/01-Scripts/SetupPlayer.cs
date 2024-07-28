@@ -1,8 +1,4 @@
-/*
- * So if build is made for UNITY_ANDROID it is true for both editors. In order to not change things over laziness,
- * I use #if and #elif
- */
-#if UNITY_EDITOR_OSX 
+#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
 #define USE_SIMULATOR
 #elif UNITY_ANDROID || UNITY_EDITOR_WIN
 #define USE_QUEST
@@ -17,9 +13,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 using UnityEngine.XR.Management;
-
 
 public class SetupPlayer : MonoBehaviour
 {
@@ -30,25 +26,20 @@ public class SetupPlayer : MonoBehaviour
     [SerializeField]
     private GameObject _xrSimulator;
     
-    [SerializeField] 
-    private Transform _environmentParent;
-
-    [SerializeField] 
-    private bool ifIntroScene = false;
-
-    [Space(height: 10)]
     [SerializeField]
-    private bool _hideOnBuildHelpfulObjects = true;
-
-    [SerializeField] 
-    private bool shouldUseDebugUiText = false;
+    private OVRManager _ovrManager;    
     
-    [SerializeField] 
-    private StringGameEvent writeToDebugUi;
-    
-    [Space(height: 10)]
     [SerializeField]
-    private OVRManager _ovrManager;
+    private XROrigin _xrOrigin;
+    
+    [SerializeField]
+    private CharacterControllerDriver _characterControllerDriver;
+
+    [Space(height: 20)] 
+    [SerializeField] private GameObject _leftHand;
+    [SerializeField] private GameObject _rightHand;
+    [SerializeField] private GameObject _handVisualizer;
+    [SerializeField] private GameObject _handsSmoothingPostProcessor;
     
     [Space(height: 10)]
     [SerializeField]
@@ -59,162 +50,69 @@ public class SetupPlayer : MonoBehaviour
     private Transform _xrControllerRight; 
     [SerializeField]
     private Transform _xrControllerRightStabilizer;
-    [SerializeField]
-    private Vector3 _xrSimulatorMoveControllersLocalPosition = new Vector3(0, 0, 0.1f);
-    
-    
-    private Vector3 _boundarySize;
-    private Vector3[] _points;
 
-    private int _frameCounter = 0;
-    
+    public XROrigin XrOrigin
+    {
+        get => _xrOrigin;
+        set => _xrOrigin = value;
+    }
+
     /// <summary>
     /// VERY IMPORTANT
-    /// TODO: when switching to OSX and Windows, before pushing always set manually:
-    ///     Project Settings > XR interaction toolkit > use xr device simulator
-    /// OVRManager interferes with XROrigin tracking origin level.
+    /// (1) if xrSimulator is active even before awake - it is always triggered - so start it inactive
+    /// (2) OVRManager interferes with XROrigin tracking origin level.
     ///  - So for the simulator, OVRManager must be set to eyelevel
     ///  - For non-simulator (Quest Link and Quest), FloorLevel to work properly
     /// March 2024: Recenter does not work properly on Quest Link - that is a reported bug in some channels
-    /// That being said, the build works fine with a guardian. 
+    /// That being said, the build works fine with a guardian.
     /// </summary>
     private void Awake()
     {
         _xrPlayer.SetActive(true);
 
+        if (GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator)
+        {
+            // (1) make sure xrSimulator is on
+            _xrSimulator.SetActive(true);
 
-        #if USE_SIMULATOR
-        // (1) make sure xrSimulator is on
-        _xrSimulator.SetActive(true);
-        
-        if (_ovrManager != null)
-            _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
-        
-        // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
-        //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
-        if (_xrControllerLeft != null && _xrControllerLeftStabilizer != null)
-        {
-            
-            for (int i = 0; i < _xrControllerLeft.childCount; i++)
+            if (_ovrManager != null)
             {
-                _xrControllerLeft.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
+                _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
             }
             
-            _xrControllerLeftStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
-        }       
-        if (_xrControllerRight != null && _xrControllerRightStabilizer != null)
-        {
-            
-            for (int i = 0; i < _xrControllerRight.childCount; i++)
-            {
-                _xrControllerRight.GetChild(i).position += _xrSimulatorMoveControllersLocalPosition;
-            }
-            
-            _xrControllerRightStabilizer.localPosition += _xrSimulatorMoveControllersLocalPosition * 2;
+                    
+            // (2) ever since not using the xr controller prefab, the controllers do not appear on the simulator
+            //this part is just to push them ahead. It is not perfect, but at least controllers are seen again
+            // SOLVED: increased by accident the camera minimum clipping pane. reverted back and all is good
         }
-        
-        #elif USE_QUEST 
-
-
-        // (1) make sure xrSimulator is off 
-        //(for some reason this does not work - had to put xrSimulator disabled manually)
-        _xrSimulator.SetActive(false);
-        _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.FloorLevel;
-
-        // (2) force hide of all game objects with tag 'HideOnBuild"
-        if (_hideOnBuildHelpfulObjects)
+        else
         {
-            GameObject[] hideObjs = GameObject.FindGameObjectsWithTag("HideOnBuild");
-            foreach (GameObject item in hideObjs)
-            {
-                item.SetActive(false);
-            }
+            // (1) make sure xrSimulator is off 
+            //(for some reason this does not work - had to put xrSimulator disabled manually)
+            _xrSimulator.SetActive(false);
+            _ovrManager.trackingOriginType = OVRManager.TrackingOrigin.FloorLevel;
         }
-        #endif
     }
 
     private void Start()
     {
-        #if USE_QUEST 
-        // set environment false if intro scene
-        _environmentParent.gameObject.SetActive(!ifIntroScene);
-        #endif
+        _characterControllerDriver.enabled = GlobalManager.Instance.CurrentPlatform == PlatformUsed.Simulator;
     }
 
-#if USE_QUEST 
     private void OnEnable()
     {
-        OVRManager.HMDMounted += OnHeadsetOn;
-        OVRManager.HMDUnmounted += OnHeadsetOff;
+        GlobalManager.OnCalibrationLost += ResetXrOrigin;
     }
 
     private void OnDisable()
     {
-        OVRManager.HMDMounted -= OnHeadsetOn;
-        OVRManager.HMDUnmounted -= OnHeadsetOff;
-    }
-    #endif
-
-    private IEnumerator CheckIfBoundaryChanged()
-    {
-        yield return new WaitForSeconds(5f);
-        RecalculateBoundary();
-        
-        // set environment active so you can see
-        _environmentParent.gameObject.SetActive(true);
-        
-        // We setup the cage as the biggest size the forward, and not the right
-        // if boundary size width is bigger than length, we should rotate the environment 90 degrees over the Y axis
-        if (_environmentParent != null && _boundarySize.x > _boundarySize.z)
-        {
-            _environmentParent.eulerAngles = new Vector3(0f, 90f, 0f);
-        }
-
-        if (shouldUseDebugUiText && _points.Length != 0)
-        {
-            string pointsStr = "(" + _frameCounter + ") PlayArea size:\n" + _boundarySize + "\n\n" 
-                               + string.Join("\n", _points.Select(p => p.ToString()));
-            if (writeToDebugUi != null)
-            {
-                writeToDebugUi.Raise(pointsStr);
-            }
-            DebugManager.Instance.Log(pointsStr);
-        }
-        
-        _frameCounter++;
-
+        GlobalManager.OnCalibrationLost -= ResetXrOrigin;
     }
 
-    private void OnHeadsetOff()
+    private void ResetXrOrigin()
     {
-        #if USE_SIMULATOR
-        
-        #elif USE_QUEST
-        DebugManager.Instance.Log("----------------------------");
-        DebugManager.Instance.Log("Headset Off" + _boundarySize);
-        
-        #endif
-    }
-
-    private void OnHeadsetOn()
-    {
-        #if USE_SIMULATOR
-        
-        #elif USE_QUEST
-        DebugManager.Instance.Log("++++++++++++++++++++++++++++");
-        
-        StartCoroutine(CheckIfBoundaryChanged());
-
-        #endif
-    }
-
-    private void RecalculateBoundary()
-    {
-        if (OVRManager.boundary.GetConfigured())
-        {
-            _boundarySize = OVRManager.boundary.GetDimensions(OVRBoundary.BoundaryType.PlayArea);
-            _points = OVRManager.boundary.GetGeometry(OVRBoundary.BoundaryType.PlayArea);
-        }
+        _xrOrigin.transform.position = new Vector3();
+        _xrOrigin.transform.rotation = Quaternion.identity;
     }
 }
 

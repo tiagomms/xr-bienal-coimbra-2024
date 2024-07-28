@@ -4,36 +4,61 @@ using System.Collections.Generic;
 using Oculus.Interaction.PoseDetection;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public enum PortalType
+{
+    ToNewScene, ToNewLocationInSameScene, EndGameScene
+}
+
+[System.Serializable]
+public class PortalSettings
+{
+    public float enterPortalAnimDuration = 3f;
+    public float leavePortalAnimDuration = 3f;
+    public Color fadeBaseColor;
+
+    public PortalType PortalType { get; set; }
+    public string NextSceneName { get; set; }
+    
+    public GameAreaBoundaryProperties NextCageOrigin { get; set; }
+}
 
 public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 {
+    [Tooltip("Drag here Portal Mesh if you change it")] 
+    [SerializeField]
+    protected GameObject _portalMeshPrefab;
+    [Tooltip("Check to make sure portal is always open")]
+    [SerializeField] protected bool isAlwaysOpen = false;
+
+    
+    [Space(height: 20)]
+    [Tooltip("Set portal sound when opened, if you want")]
+    [SerializeField] protected AudioSource _audioSource;
     [SerializeField] protected AudioClip portalSound;
     [SerializeField] protected float audioVolume = 1f;
     [SerializeField] protected float audioMaxDistance = 3f;
-    
-    [Space(height: 30)]
-    // Unity event for opening the portal
-    public UnityEvent onPortalOpened;   
-    public UnityEvent onPortalClosed;
 
-    protected bool AlwaysOpenFlag = false;
+    [Space(height: 20)] 
+    [Tooltip("Portal Settings when Fading")]
+    [SerializeField] protected PortalSettings portalSettings;
+    
+    public static Action<PortalSettings> OnPortalEnter;
+    public static Action<PortalSettings> OnPortalThrough;
+
     private bool _isOpen = false;
-    private AudioSource _audioSource;
-    private GameObject _portalPrefab;
     
-
     protected virtual void Awake()
     {
-        _audioSource = GetComponentInChildren<AudioSource>();
-        _portalPrefab = transform.GetChild(0).gameObject;
         // to make sure portal is not seen at start unless it is always open
-        _portalPrefab.SetActive(AlwaysOpenFlag);
-        _isOpen = AlwaysOpenFlag;
+        _portalMeshPrefab.SetActive(isAlwaysOpen);
+        _isOpen = isAlwaysOpen;
     }
 
     protected virtual void Start()
     {
-        if (AlwaysOpenFlag)
+        if (isAlwaysOpen)
         {
             OpenPortal();
         }
@@ -41,10 +66,10 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
 
     protected virtual void OpenPortal()
     {
-        if (_isOpen && !AlwaysOpenFlag) return;
+        if (_isOpen && !isAlwaysOpen) return;
         
         _isOpen = true;
-        _portalPrefab.SetActive(true);
+        _portalMeshPrefab.SetActive(true);
         
         if (_audioSource != null && portalSound != null)
         {
@@ -54,7 +79,6 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
             _audioSource.Play();
         }
         
-        onPortalOpened.Invoke();
     }
 
     /// <summary>
@@ -62,10 +86,12 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
     /// </summary>
     public virtual void ClosePortal()
     {
-        if (!(_isOpen && !AlwaysOpenFlag)) return;
+        if (!(_isOpen && !isAlwaysOpen)) return;
         
         _isOpen = false;
-        _portalPrefab.SetActive(false);
+        _portalMeshPrefab.SetActive(false);
+        portalSettings.NextSceneName = null;
+        
             
         if (_audioSource != null)
         {
@@ -73,12 +99,22 @@ public abstract class AbstractPortalToSomeNewPlace : MonoBehaviour
             _audioSource.clip = null;
         }
         
-        onPortalClosed.Invoke();
     }
 
-    public virtual void ActivatePortal(Transform player)
+    public virtual void EnterPortal(Transform player)
     {
         if (!_isOpen)
             return;
+        SetPortalNextStepSettings();
+
     }
+    
+    protected virtual void LeavePortal(Transform player)
+    {
+        if (!_isOpen)
+            return;
+        
+    }
+
+    protected abstract void SetPortalNextStepSettings();
 }

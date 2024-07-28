@@ -9,6 +9,10 @@ TagManager:
   - Right Hand Model
   - Right Hand
   - Left Hand
+  - PortalObject
+  - Environment
+  - PlayerCollider
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

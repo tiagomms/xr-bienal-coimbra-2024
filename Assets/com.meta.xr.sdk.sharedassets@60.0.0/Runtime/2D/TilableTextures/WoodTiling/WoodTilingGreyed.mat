@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: WoodTilingGreyed
   m_Shader: {fileID: 4800000, guid: 97426d6aa7b53ea44a5c9e3fa3de2acb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -87,7 +90,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDark: {r: 0.5921569, g: 0.60784316, b: 0.6509804, a: 1}
+    - _ColorDark: {r: 0.8243592, g: 0.84352374, b: 0.8962264, a: 1}
     - _ColorLight: {r: 0.9960785, g: 0.97647065, b: 0.93725497, a: 1}
     - _DimColor: {r: 0.62352943, g: 0.6392157, b: 0.67058825, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
