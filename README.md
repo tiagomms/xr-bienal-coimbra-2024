@@ -12,7 +12,7 @@ XR Project for Coimbra's 2024 Bienal Art festival - Dreams of freedom
 - [HyperHuman](https://hyperhuman.deemos.com/) - attempt to create a lifelike "Salvador Maia"
 - Bunch of free image generators tools to create skyboxes: [ManyWorlds.run](https://www.manyworlds.run/), [lexica.art](https://lexica.art/), [Adobe Firefly](https://firefly.adobe.com/)
 - [LUMA AI Capture](https://lumalabs.ai/dashboard/captures) - experiments with Gaussian Splating
-- [Polycam Room and Skybox Capture] - experiments creating a lifelike room and edit in Unity, and creating real life flat bottom skyboxes
+- [Polycam Room and Skybox Capture](https://poly.cam/) - experiments creating a lifelike room and editing it in Unity + creating real life flat bottom skyboxes
 
 ### Project build versions & hardware
 - Meta Quest 2 & 3
