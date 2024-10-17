@@ -1,7 +1,8 @@
 # xr-bienal-coimbra-2024
 XR Project for Coimbra's 2024 Bienal Art festival - Dreams of freedom
 
-You may find a **detailed project description** [here](https://tiagomms.github.io/xr-portfolio/blog/xr-design-fellowship-module-08-assign/)
+## Detailed project description 
+[Click here](https://tiagomms.github.io/xr-portfolio/blog/xr-design-fellowship-module-08-assign/)
 
 ### Tools
 - Unity 2022.3.16f1 - main design & development tool
